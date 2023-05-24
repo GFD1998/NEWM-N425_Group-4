@@ -28,6 +28,15 @@ return function (DI\Container $container) {
 
             //database settings
             'db' => [
+                'driver' => "mysql",
+                'host' => 'localhost',
+                //need to put database name here
+                'database' => '',
+                'username' => 'phpuser',
+                'password' => 'phpuser',
+                'charset' => 'utf8',
+                'collation' => 'utf8_unicode_ci',
+                'prefix' => ''
             ]
         ];
     });

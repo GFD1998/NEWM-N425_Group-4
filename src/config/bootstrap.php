@@ -41,6 +41,9 @@ $customErrorHandler = (require __DIR__ . '/errorhandler.php');
 //To use the Slim's built-in error handler, simply comment out the following line.
 $errorMiddleware->setDefaultErrorHandler($customErrorHandler);
 
+// Add eloquent
+(require __DIR__ . '/eloquent.php')($container);
+
 // Register routes
 (require __DIR__ . '/routes.php')($app);
 
