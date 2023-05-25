@@ -3,7 +3,7 @@
  * Author: Josh Tuffnell
  * Date: 5/24/23
  * File: settings.php
- * Description:
+ * Description: stores settings of application
  */
 
 // Should be set to 0 in production
@@ -30,8 +30,7 @@ return function (DI\Container $container) {
             'db' => [
                 'driver' => "mysql",
                 'host' => 'localhost',
-                'name' => "mcdonalds",
-                'database' => '',
+                'database' => 'mcdonalds_db',
                 'username' => 'phpuser',
                 'password' => 'phpuser',
                 'charset' => 'utf8',
