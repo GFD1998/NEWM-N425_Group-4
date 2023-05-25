@@ -15,4 +15,17 @@ class Menu_Item{
 
     }
 
+    public function getData(){
+        $data = [$this->itemID, $this->name, $this->description, $this->price];
+        $jsonData = json_encode($data);
+        return $jsonData;
+    }
+
+    public function setData($itemID, $name, $description, $price){  
+        $this->itemID = $itemID;
+        $this->name = $name;
+        $this->description = $description;
+        $this->price = $price;
+    }
+
 }

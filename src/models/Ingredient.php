@@ -13,4 +13,16 @@ class Ingredient{
 
     }
 
+    public function getData(){
+        $data = [$this->ingredientID, $this->name, $this->description];
+        $jsonData = json_encode($data);
+        return $jsonData;
+    }
+
+    public function setData($ingredientID, $name, $description){  
+        $this->ingredientID = $ingredientID;
+        $this->name = $name;
+        $this->description = $description;
+    }
+
 }
