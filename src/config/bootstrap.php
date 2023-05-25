@@ -25,7 +25,7 @@ $app = AppFactory::create();
 // Set the base path for the app
 $app->setBasePath($container->get('settings')['basePath']);
 
-// Add middleware for paring JSON, form data and xml
+// Add middleware for parsing JSON, form data and xml
 $app->addBodyParsingMiddleware();
 
 // Add the Slim built-in routing middleware
