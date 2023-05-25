@@ -1,7 +1,8 @@
 <?php
+namespace MyCollegeAPI\Models;
+use Illuminate\Database\Eloquent\Model;
 
-
-class Menu_Item{
+class Menu_Item extends Model{
 
     public $itemID;
 
@@ -14,5 +15,8 @@ class Menu_Item{
     function __constructor(){
 
     }
-
+    public function getItems()
+    {
+        return $this->name;
+    }
 }

@@ -5,13 +5,15 @@
  * File: routes.php
  * Description:
  */
+
 use Slim\App;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Routing\RouteCollectorProxy;
 
-return function (App $app){
-  // move app routes here
-    $app->get('/', function( Request $request, Response $response, array $args) {
+return function (App $app) {
+    // move app routes here
+    $app->get('/', function (Request $request, Response $response, array $args) {
         return $response->withHeader('Location', 'client');
     });
 
@@ -22,14 +24,14 @@ return function (App $app){
         return $response;
     });
 
-    $app->get('/mcdonalds/{resource}', function( Request $request, Response $response, array $args) {
+    $app->get('/mcdonalds/{resource}', function (Request $request, Response $response, array $args) {
         $resource = $args['resource'];
         $response->getBody()->write("Resource: [$resource]");
 
         return $response;
     });
 
-    $app->get('/client', function( Request $request, Response $response ) {
+    $app->get('/client', function (Request $request, Response $response) {
 
         $response->getBody()->write("
 
@@ -60,11 +62,17 @@ return function (App $app){
         return $response;
     });
 
-
-    $app->run();
-
+    //Route group api/v1 pattern
+    $app->group('/api/v1', function (RouteCollectorProxy $group) {
+    //Route group for /menuitems pattern
+        $group->group('/menuitems', function (RouteCollectorProxy $group) {
+    //Call the index method defined in the MenuItemsController class
+    //MenuItems is the container key defined in dependencies.php.
+            $group->get('', 'MenuItems:index');
+        });
+    });
     // Handle invalid routes
-    $app->any('{route:.*}', function(Request $request, Response $response) {
+    $app->any('{route:.*}', function (Request $request, Response $response) {
         $response->getBody()->write("Page Not Found");
         return $response->withStatus(404);
     });
