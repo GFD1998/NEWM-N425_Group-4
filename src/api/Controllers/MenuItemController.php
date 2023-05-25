@@ -16,5 +16,11 @@ class MenuItemController {
         $results = Menu_Item::getMenuItems();
         return Helper::withJson($response, $results, 200);
     }
+    //view a specific item
+    public function view(Request $request, Response $response, array $args) : Response {
+        $id = $args['id'];
+        $results = Menu_Item::getMenuItemById($id);
+        return Helper::withJson($response, $results, 200);
+    }
 
 }

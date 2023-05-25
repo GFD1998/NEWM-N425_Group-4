@@ -31,7 +31,7 @@ return function (DI\Container $container) {
                 'driver' => "mysql",
                 'host' => 'localhost',
                 //need to put database name here
-                'database' => '',
+                'database' => 'mcdonalds',
                 'username' => 'phpuser',
                 'password' => 'phpuser',
                 'charset' => 'utf8',

@@ -69,6 +69,7 @@ return function (App $app) {
     //Call the index method defined in the MenuItemsController class
     //MenuItems is the container key defined in dependencies.php.
             $group->get('', 'MenuItems:index');
+            $group->get('/{id}', 'MenuItems:view');
         });
     });
     // Handle invalid routes

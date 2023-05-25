@@ -15,8 +15,14 @@ class Menu_Item extends Model{
     function __constructor(){
 
     }
-    public function getItems()
-    {
-        return $this->name;
+    public static function getItems(){
+        //Retrieve all professors
+        $menuitem = self::with('classes')->get();
+        return $menuitem;
+    }
+    //view menu item by id
+    public static function getMenuItemById(string $id) {
+        $menuitem = self::findOrFail($id);
+        return $menuitem;
     }
 }
