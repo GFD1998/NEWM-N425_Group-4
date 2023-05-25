@@ -6,9 +6,12 @@
  * Description: file to handle dependencies
  */
 use DI\Container;
-return function(Container $container) {
-// Set a dependency called "MenuItem"
+use MyCollegeAPI\Controllers\MenuItemController;
+
+    return function(Container $container) {
+    // Set a dependency called "MenuItem"
         $container->set('MenuItems', function() {
             return new MenuItemController();
         });
+
     };

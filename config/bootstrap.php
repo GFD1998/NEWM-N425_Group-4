@@ -8,7 +8,7 @@
 use DI\Container;
 use Slim\Factory\AppFactory;
 
-require '../../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 // Create a Container object using PHP-DI
 $container = new Container();

@@ -1,7 +1,7 @@
 <?php
 
 
-class MenuItemIngredient{
+class MenuItemIngredient extends Model{
 
     public $menuitemingredientID;
 

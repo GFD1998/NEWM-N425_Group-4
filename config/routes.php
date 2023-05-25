@@ -17,7 +17,7 @@ return function (App $app) {
         return $response->withHeader('Location', 'client');
     });
 
-    $app->get('/hello/{name}', function (Request $request, Response $response, array $args) {
+    $app->get('api/hello/{name}', function (Request $request, Response $response, array $args) {
         $name = $args['name'];
         $response->getBody()->write("Hello, $name");
 
