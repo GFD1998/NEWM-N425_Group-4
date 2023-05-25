@@ -24,14 +24,14 @@ return function (DI\Container $container) {
              * The path should be relative to the htdocs folder. On my server, mycollege-api folder
              * is stored at htdocs/I425/mycollege-api. So the base path is '/I425/mycollege-api'.
             */
-            'basePath' => '',
+            'basePath' => '/client',
 
             //database settings
             'db' => [
                 'driver' => "mysql",
                 'host' => 'localhost',
-                //need to put database name here
-                'database' => 'mcdonalds',
+                'name' => "mcdonalds",
+                'database' => '',
                 'username' => 'phpuser',
                 'password' => 'phpuser',
                 'charset' => 'utf8',
