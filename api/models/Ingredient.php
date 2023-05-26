@@ -1,7 +1,7 @@
 <?php
 
 
-class Ingredient{
+class Ingredient {
 
     public $ingredientID;
 
