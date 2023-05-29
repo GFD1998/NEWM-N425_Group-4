@@ -14,17 +14,17 @@ use Slim\Routing\RouteCollectorProxy;
 return function (App $app) {
     // move app routes here
     $app->get('/', function (Request $request, Response $response, array $args) {
-        return $response->withHeader('Location', 'client');
+        return $response->withHeader('Location', '/client');
     });
 
-    $app->get('api/hello/{name}', function (Request $request, Response $response, array $args) {
+    $app->get('/hello/{name}', function (Request $request, Response $response, array $args) {
         $name = $args['name'];
         $response->getBody()->write("Hello, $name");
 
         return $response;
     });
 
-    $app->get('/mcdonalds/{resource}', function (Request $request, Response $response, array $args) {
+    $app->get('/client/mcdonalds/{resource}', function (Request $request, Response $response, array $args) {
         $resource = $args['resource'];
         $response->getBody()->write("Resource: [$resource]");
 
@@ -52,7 +52,7 @@ return function (App $app) {
                     alert('You must input a resource value.');
                 }else{
                     var url = window.location.href;
-                    url = url.split('/')[0];
+                    // url = url.split('/')[0];
                     window.location.href = url + '/mcdonalds/' + document.getElementById(\"tableValue\").value;
                 }
             };
