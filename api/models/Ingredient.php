@@ -14,8 +14,9 @@ class Ingredient{
     }
 
     public function getData(){
-        $data = [$this->ingredientID, $this->name, $this->description];
-        $jsonData = json_encode($data);
+        // $data = [$this->ingredientID, $this->name, $this->description];
+        $data = self::all();
+        // $jsonData = json_encode($data);
         return $jsonData;
     }
 

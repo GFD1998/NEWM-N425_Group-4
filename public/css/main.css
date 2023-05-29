@@ -1,1 +1,3 @@
-@import 'main.css';
+
+@import 'body/nav.css';
+@import 'body/main.css';

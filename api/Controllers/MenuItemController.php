@@ -10,6 +10,8 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 use MyCollegeAPI\Models\Menu_Item;
 use MyCollegeAPI\Controllers\ControllerHelper as Helper;
+
+
 class MenuItemController {
     //list all items
     public function index(Request $request, Response $response, array $args) : Response {
@@ -20,6 +22,14 @@ class MenuItemController {
     public function view(Request $request, Response $response, array $args) : Response {
         $results = Menu_Item::getMenuItemById($args['itemID']);
         return Helper::withJson($response, $results, 200);
+    }
+
+
+    private function getImageBaseUrl(Request $request): String{
+        $uri = $request->getUri();
+        $port = $uri->getPort() ? ":" . $uri->getPort() : "";
+        $routeContext = \Slim\Routing\RouteContext::fromRequest($request);
+        return $uri->getScheme() . "://" . $uri->getHost() . $port . $routeContext->getBasePath() . "/public/images/";
     }
 
 }

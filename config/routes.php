@@ -32,32 +32,41 @@ return function (App $app) {
     });
 
     $app->get('/client', function (Request $request, Response $response) {
+        // require("../public/pages/client.php");
+        $response->getBody()->write('' . require "../public/pages/client.php");
 
-        $response->getBody()->write("
+        return $response;
+    });
 
-        <head>
-            <title>McDonald's Resource API</title>
-        </head>
-        <link rel='stylesheet' href='css/main.css' />
-        <div class='clientContainer'>
-            <input id='tableValue' type='text' placeholder='Enter table...' />
-            <p id='submitBtn'>Submit</p>
-        </div>
 
-        <script>
-            var submitBtn = document.getElementById(\"submitBtn\");
+    
+    $app->get('/client/search', function (Request $request, Response $response) {
+        // require("../public/pages/client.php");
+        $response->getBody()->write('' . require "../public/pages/search.php");
 
-            submitBtn.onclick = () => {
-                if(!document.getElementById(\"tableValue\").value){
-                    alert('You must input a resource value.');
-                }else{
-                    var url = window.location.href;
-                    // url = url.split('/')[0];
-                    window.location.href = url + '/mcdonalds/' + document.getElementById(\"tableValue\").value;
-                }
-            };
-        </script>
-    ");
+        return $response;
+    });
+
+    
+    $app->get('/client/update', function (Request $request, Response $response) {
+        // require("../public/pages/client.php");
+        $response->getBody()->write('' . require "../public/pages/update.php");
+
+        return $response;
+    });
+
+    
+    $app->get('/client/delete', function (Request $request, Response $response) {
+        // require("../public/pages/client.php");
+        $response->getBody()->write('' . require "../public/pages/delete.php");
+
+        return $response;
+    });
+
+
+    $app->get('/client/view', function (Request $request, Response $response) {
+        // require("../public/pages/client.php");
+        $response->getBody()->write('' . require "../public/pages/view.php");
 
         return $response;
     });
