@@ -1,4 +1,17 @@
+<head>
+    <title>McDonald's Resource API</title>
+</head>
+<link rel='stylesheet' href='css/main.css' />
+<link rel='stylesheet' href='../css/main.css' />
+
 <div id="topNav">
+
+    <div 
+    id="home" 
+    class="navBtn"
+    onClick="client()">
+        <p>HOME</p>
+    </div>
 
     <div 
     id="search" 
@@ -30,21 +43,31 @@
 
 <script>
 
+
+    function client(){
+        var baseURL = window.location.href.split('/NEWM-N425_Group-4')[0];
+        window.location.href = baseURL + '/NEWM-N425_Group-4/client';
+    }
+
     function search(){
-        window.location.href += '/search';
+        var baseURL = window.location.href.split('/NEWM-N425_Group-4')[0];
+        window.location.href = baseURL + '/NEWM-N425_Group-4/search';
     }
 
     function update(){
-        window.location.href += '/update';
+        var baseURL = window.location.href.split('/NEWM-N425_Group-4')[0];
+        window.location.href = baseURL + '/NEWM-N425_Group-4/update';
     }
 
     //Function is pdelete due to keyword reservation of 'delete'.
     function pdelete(){
-        window.location.href += '/delete';
+        var baseURL = window.location.href.split('/NEWM-N425_Group-4')[0];
+        window.location.href = baseURL + '/NEWM-N425_Group-4/delete';
     }
 
     function view(){
-        window.location.href += '/view';
+        var baseURL = window.location.href.split('/NEWM-N425_Group-4')[0];
+        window.location.href = baseURL + '/NEWM-N425_Group-4/view';
     }
 
 

@@ -1,6 +1,6 @@
 .navBtn{
-    color: #FFFFFF;
-    background-color: #000000;
+    color: #27251F;
+    background-color: #DA291C;
     border-radius: 5px;
     /* padding: 10px; */
     font-weight: 900;
@@ -9,8 +9,8 @@
 }
 
 .navBtn:hover{
-    color: #000000;
-    background-color: #FFFFFF;
+    color: #FFC72C;
+    background-color: #27251F;
     border-radius: 5px;
     /* padding: 10px; */
     cursor: pointer;
@@ -22,11 +22,11 @@
     /* width: 100%; */
     justify-content: space-around;
     align-items: center;
-    background-color: orange;
+    background-color: #FFC72C;
     padding: 1vw;
 }
 
 #topNav p{
-    width: 20vw;
+    width: 15vw;
     text-align: center;
 }

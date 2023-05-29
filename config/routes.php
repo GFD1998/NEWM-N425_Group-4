@@ -13,8 +13,9 @@ use Slim\Routing\RouteCollectorProxy;
 
 return function (App $app) {
     // move app routes here
-    $app->get('/', function (Request $request, Response $response, array $args) {
-        return $response->withHeader('Location', '/client');
+    $app->get('/', function () use ($app) {
+        $app->redirect("/client");
+        // return $response->withHeader('Location', '/client');
     });
 
     $app->get('/hello/{name}', function (Request $request, Response $response, array $args) {
@@ -40,7 +41,7 @@ return function (App $app) {
 
 
     
-    $app->get('/client/search', function (Request $request, Response $response) {
+    $app->get('/search', function (Request $request, Response $response) {
         // require("../public/pages/client.php");
         $response->getBody()->write('' . require "../public/pages/search.php");
 
@@ -48,7 +49,7 @@ return function (App $app) {
     });
 
     
-    $app->get('/client/update', function (Request $request, Response $response) {
+    $app->get('/update', function (Request $request, Response $response) {
         // require("../public/pages/client.php");
         $response->getBody()->write('' . require "../public/pages/update.php");
 
@@ -56,7 +57,7 @@ return function (App $app) {
     });
 
     
-    $app->get('/client/delete', function (Request $request, Response $response) {
+    $app->get('/delete', function (Request $request, Response $response) {
         // require("../public/pages/client.php");
         $response->getBody()->write('' . require "../public/pages/delete.php");
 
@@ -64,7 +65,7 @@ return function (App $app) {
     });
 
 
-    $app->get('/client/view', function (Request $request, Response $response) {
+    $app->get('/view', function (Request $request, Response $response) {
         // require("../public/pages/client.php");
         $response->getBody()->write('' . require "../public/pages/view.php");
 
