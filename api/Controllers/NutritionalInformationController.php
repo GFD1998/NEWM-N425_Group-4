@@ -12,14 +12,14 @@ use Psr\Http\Message\ResponseInterface as Response;
 use MyCollegeAPI\Models\NutritionalInformation;
 use MyCollegeAPI\Controllers\ControllerHelper as Helper;
 class NutritionalInformationController {
-    //Retrieve all the menu item ingredients
+    //list all items
     public function index(Request $request, Response $response, array $args) : Response {
-        $results = MenuItemIngredient::getData();
+        $results = NutritionalInformation::getData();
         return Helper::withJson($response, $results, 200);
     }
-    //View a specific ingredient by section number
+    //view a specific item
     public function view(Request $request, Response $response, array $args) : Response {
-        $results = MenuItemIngredient::getDataByTerm($args['section']);
+        $results = NutritionalInformation::getNutritionalInformationById($args['element']);
         return Helper::withJson($response, $results, 200);
     }
 

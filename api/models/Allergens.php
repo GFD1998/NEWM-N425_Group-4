@@ -1,11 +1,19 @@
-
 <?php
 
+namespace MyCollegeAPI\Models;
 use Illuminate\Database\Eloquent\Model;
 
+class Allergens extends Model {
+    //table name
+    protected $table = 'Allergens';
+    //primary key
+    protected $primaryKey = 'AllergensID';
+    //PK is numeric
+    public $incrementing = true;
 
-class Allergens extends Model{
+    public $timestamps = false;
 
+    //Columns
     public $allergenID;
 
     public $name;
@@ -17,16 +25,15 @@ class Allergens extends Model{
     }
 
 
-    public function getData(){
-        $data = [$this->allergenID, $this->name, $this->description];
-        $jsonData = json_encode($data);
-        return $jsonData;
+    public static function getAllergensById(string $ID) {
+        $allergensitem = self::findOrFail($ID);
+        return $allergensitem;
     }
 
-    public function setData($allergenID, $name, $description){  
-        $this->allergenID = $allergenID;
-        $this->name = $name;
-        $this->description = $description;
+    //View all data from table.
+    public static function getData(){
+        $jsonData = self::all();
+        return $jsonData;
     }
 
 }

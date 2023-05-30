@@ -20,7 +20,7 @@ class MenuItemController {
     }
     //view a specific item
     public function view(Request $request, Response $response, array $args) : Response {
-        $results = Menu_Item::getMenuItemById($args['itemID']);
+        $results = Menu_Item::getMenuItemById($args['element']);
         return Helper::withJson($response, $results, 200);
     }
 

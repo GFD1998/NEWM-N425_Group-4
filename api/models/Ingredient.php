@@ -1,27 +1,34 @@
 <?php
 
+namespace MyCollegeAPI\Models;
+use Illuminate\Database\Eloquent\Model;
 
-class Ingredient{
+class Ingredient extends Model {
+    //table name
+    protected $table = 'Ingredient';
+    //primary key
+    protected $primaryKey = 'IngredientID';
+    //PK is numeric
+    public $incrementing = true;
 
+    public $timestamps = false;
+
+    //Columns
     public $ingredientID;
 
     public $name;
 
     public $description;
 
-    function __constructor(){
-
+    public static function getIngredientById(string $ID) {
+        $ingredientitem = self::findOrFail($ID);
+        return $ingredientitem;
     }
 
-    public function getData(){
-        $data = self::all();
+    //View all data from table.
+    public static function getData(){
+        $jsonData = self::all();
         return $jsonData;
-    }
-
-    public function setData($ingredientID, $name, $description){  
-        $this->ingredientID = $ingredientID;
-        $this->name = $name;
-        $this->description = $description;
     }
 
 }

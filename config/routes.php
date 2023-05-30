@@ -88,16 +88,47 @@ return function (App $app) {
         //     return $response;
         // });
         //Route group for /menuitems pattern
-        $group->group('/menuitems', function (RouteCollectorProxy $group) {
-        //Call the index method defined in the MenuItemsController class
-        //MenuItems is the container key defined in dependencies.php.
-
-            $group->group('/menuitem', function(RouteCollectorProxy $group){
-                $group->get('', 'MenuItem:index');
-            });
-            // $group->get('', 'MenuItem:index');
-            // $group->get('/{id}', 'MenuItem:view');
+        $group->group('/menuitems', function(RouteCollectorProxy $group){
+            $group->get('', 'MenuItem:index');
+            $group->get('/', 'MenuItem:index');
+            $group->get('/{element}', 'MenuItem:view');
         });
+
+        $group->group('/menuitemingredients', function(RouteCollectorProxy $group){
+            $group->get('', 'MenuItemIngredient:index');
+            $group->get('/', 'MenuItemIngredient:index');
+            $group->get('/{element}', 'MenuItemIngredient:view');
+        });
+
+        $group->group('/menuitemallergens', function(RouteCollectorProxy $group){
+            $group->get('', 'MenuItemAllergens:index');
+            $group->get('/', 'MenuItemAllergens:index');
+            $group->get('/{element}', 'MenuItemAllergens:view');
+        });
+
+        $group->group('/nutritionalinformation', function(RouteCollectorProxy $group){
+            $group->get('', 'NutritionalInformation:index');
+            $group->get('/', 'NutritionalInformation:index');
+            $group->get('/{element}', 'NutritionalInformation:view');
+        });
+
+        $group->group('/allergens', function(RouteCollectorProxy $group){
+            $group->get('', 'Allergens:index');
+            $group->get('/', 'Allergens:index');
+            $group->get('/{element}', 'Allergens:view');
+        });
+
+        $group->group('/ingredients', function(RouteCollectorProxy $group){
+            $group->get('', 'Ingredient:index');
+            $group->get('/', 'Ingredient:index');
+            $group->get('/{element}', 'Ingredient:view');
+        });
+        // $group->group('/menuitem/{element}', function (RouteCollectorProxy $group, array $args) {
+        // //Call the index method defined in the MenuItemsController class
+        // //MenuItems is the container key defined in dependencies.php.
+        //     // $group->get('', 'MenuItem:index');
+        //     // $group->get('/{id}', 'MenuItem:view');
+        // });
     });
 
 
