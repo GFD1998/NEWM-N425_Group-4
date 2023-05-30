@@ -24,7 +24,8 @@ return function (DI\Container $container) {
              * The path should be relative to the htdocs folder. On my server, mycollege-api folder
              * is stored at htdocs/I425/mycollege-api. So the base path is '/I425/mycollege-api'.
             */
-            'basePath' => '/projects/NEWM-N425_Group-4',
+            //set base path
+            'basePath' => '/I425/NEW-N425_Group-4',
 
             //database settings
             'db' => [

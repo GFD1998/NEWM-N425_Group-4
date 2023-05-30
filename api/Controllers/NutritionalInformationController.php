@@ -14,7 +14,7 @@ use MyCollegeAPI\Controllers\ControllerHelper as Helper;
 class NutritionalInformationController {
     //list all items
     public function index(Request $request, Response $response, array $args) : Response {
-        $results = NutritionalInformation::getData();
+        $results = NutritionalInformation::getData($request);
         return Helper::withJson($response, $results, 200);
     }
     //view a specific item
