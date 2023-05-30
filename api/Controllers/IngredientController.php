@@ -14,7 +14,7 @@ use MyCollegeAPI\Controllers\ControllerHelper as Helper;
 class IngredientController {
     //list all items
     public function index(Request $request, Response $response, array $args) : Response {
-        $results = Ingredient::getData();
+        $results = Ingredient::getData($request);
         return Helper::withJson($response, $results, 200);
     }
     //view a specific item

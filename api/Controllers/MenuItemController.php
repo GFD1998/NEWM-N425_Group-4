@@ -15,7 +15,7 @@ use MyCollegeAPI\Controllers\ControllerHelper as Helper;
 class MenuItemController {
     //list all items
     public function index(Request $request, Response $response, array $args) : Response {
-        $results = Menu_Item::getData();
+        $results = Menu_Item::getData($request);
         return Helper::withJson($response, $results, 200);
     }
     //view a specific item
