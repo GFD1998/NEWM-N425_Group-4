@@ -13,18 +13,19 @@ use Slim\Routing\RouteCollectorProxy;
 
 return function (App $app) {
     // move app routes here
-    $app->get('/', function (Request $request, Response $response, array $args) {
-        return $response->withHeader('Location', 'client');
+    $app->get('/', function () use ($app) {
+        $app->redirect("/client");
+        // return $response->withHeader('Location', '/client');
     });
 
-    $app->get('api/hello/{name}', function (Request $request, Response $response, array $args) {
+    $app->get('/hello/{name}', function (Request $request, Response $response, array $args) {
         $name = $args['name'];
         $response->getBody()->write("Hello, $name");
 
         return $response;
     });
 
-    $app->get('/mcdonalds/{resource}', function (Request $request, Response $response, array $args) {
+    $app->get('/client/mcdonalds/{resource}', function (Request $request, Response $response, array $args) {
         $resource = $args['resource'];
         $response->getBody()->write("Resource: [$resource]");
 
@@ -32,32 +33,41 @@ return function (App $app) {
     });
 
     $app->get('/client', function (Request $request, Response $response) {
+        // require("../public/pages/client.php");
+        $response->getBody()->write('' . require "../public/pages/client.php");
 
-        $response->getBody()->write("
+        return $response;
+    });
 
-        <head>
-            <title>McDonald's Resource API</title>
-        </head>
-        <link rel='stylesheet' href='css/main.css' />
-        <div class='clientContainer'>
-            <input id='tableValue' type='text' placeholder='Enter table...' />
-            <p id='submitBtn'>Submit</p>
-        </div>
 
-        <script>
-            var submitBtn = document.getElementById(\"submitBtn\");
+    
+    $app->get('/search', function (Request $request, Response $response) {
+        // require("../public/pages/client.php");
+        $response->getBody()->write('' . require "../public/pages/search.php");
 
-            submitBtn.onclick = () => {
-                if(!document.getElementById(\"tableValue\").value){
-                    alert('You must input a resource value.');
-                }else{
-                    var url = window.location.href;
-                    url = url.split('/')[0];
-                    window.location.href = url + '/mcdonalds/' + document.getElementById(\"tableValue\").value;
-                }
-            };
-        </script>
-    ");
+        return $response;
+    });
+
+    
+    $app->get('/update', function (Request $request, Response $response) {
+        // require("../public/pages/client.php");
+        $response->getBody()->write('' . require "../public/pages/update.php");
+
+        return $response;
+    });
+
+    
+    $app->get('/delete', function (Request $request, Response $response) {
+        // require("../public/pages/client.php");
+        $response->getBody()->write('' . require "../public/pages/delete.php");
+
+        return $response;
+    });
+
+
+    $app->get('/view', function (Request $request, Response $response) {
+        // require("../public/pages/client.php");
+        $response->getBody()->write('' . require "../public/pages/view.php");
 
         return $response;
     });

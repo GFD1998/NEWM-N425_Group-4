@@ -36,7 +36,7 @@ return function (
             break;
         case HttpNotFoundException::class:
             $status = 404;
-            $message = 'Page Not Found';
+            $message = 'Page Not Found <br>' . $exception;
             break;
         case HttpBadRequestException::class:
             $status = 400;

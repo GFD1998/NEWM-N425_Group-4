@@ -1,0 +1,32 @@
+.navBtn{
+    color: #27251F;
+    background-color: #DA291C;
+    border-radius: 5px;
+    /* padding: 10px; */
+    font-weight: 900;
+    font-family: 'Noto Sans', sans-serif;
+    transition: color 0.5s, background-color 0.5s;
+}
+
+.navBtn:hover{
+    color: #FFC72C;
+    background-color: #27251F;
+    border-radius: 5px;
+    /* padding: 10px; */
+    cursor: pointer;
+}
+
+#topNav{
+    display: flex;
+    flex-direction: row;
+    /* width: 100%; */
+    justify-content: space-around;
+    align-items: center;
+    background-color: #FFC72C;
+    padding: 1vw;
+}
+
+#topNav p{
+    width: 15vw;
+    text-align: center;
+}
