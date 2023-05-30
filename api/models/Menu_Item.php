@@ -39,12 +39,12 @@ class Menu_Item extends Model {
         $menuitemingredient = self::findOrFail($itemID)->menuitemingredient;
         return $menuitemingredient;
     }
-    public function getData(){
-        $data = self::all();
+    public static function getData(){
+        $jsonData = self::all();
         return $jsonData;
     }
 
-    public function setData($ingredientID, $name, $description){  
+    public static function setData($ingredientID, $name, $description){  
         $this->ingredientID = $ingredientID;
         $this->name = $name;
         $this->description = $description;

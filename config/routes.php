@@ -77,8 +77,9 @@ return function (App $app) {
 
 
 
-    $app->group('api/resources', function (RouteCollectorProxy $group) {
-
+    $app->group('/api/resources', function (RouteCollectorProxy $group) {
+        
+        // $group->get('', 'MenuItem:index');
         
         // $app->get('/', function (Request $request, Response $response, array $args) {
         //     $response->getBody()->write("<script>
