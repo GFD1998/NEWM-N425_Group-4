@@ -39,27 +39,15 @@ class Menu_Item extends Model {
         $menuitemingredient = self::findOrFail($itemID)->menuitemingredient;
         return $menuitemingredient;
     }
-    /*
-    public $name;
-
-    public $description;
-
-    public $price;
-``*/
-  /*  function __constructor(){
-
-    }
-
     public function getData(){
-        $data = [$this->itemID, $this->name, $this->description, $this->price];
-        $jsonData = json_encode($data);
+        $data = self::all();
         return $jsonData;
     }
-    public function setData($itemID, $name, $description, $price){  
-        $this->itemID = $itemID;
+
+    public function setData($ingredientID, $name, $description){  
+        $this->ingredientID = $ingredientID;
         $this->name = $name;
         $this->description = $description;
-        $this->price = $price;
     }
-*/
+
 }

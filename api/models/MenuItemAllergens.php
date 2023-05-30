@@ -25,4 +25,9 @@ class MenuItemAllergensID{
         $this->itemID = $itemID;
     }
 
+    public static function searchData($term){  
+            $query = self::where('menuItemAllergensID', 'like', $term)
+            ->orWhere('allergenID', 'like', $term)
+            ->orWhere('itemID', 'like', $term);
+    }
 }

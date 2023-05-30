@@ -10,12 +10,15 @@ use Slim\App;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Routing\RouteCollectorProxy;
+use Slim\Routing\RouteContext;
 
 return function (App $app) {
     // move app routes here
-    $app->get('/', function () use ($app) {
-        $app->redirect("/client");
-        // return $response->withHeader('Location', '/client');
+    $app->get('/', function (Request $request, Response $response, array $args) {
+        $response->getBody()->write("<script>
+            window.location.href += 'client';
+        </script>");
+        return $response;
     });
 
     $app->get('/hello/{name}', function (Request $request, Response $response, array $args) {
@@ -72,18 +75,58 @@ return function (App $app) {
         return $response;
     });
 
-    //Route group api/v1 pattern
-    $app->group('/api/v1', function (RouteCollectorProxy $group) {
-    //Route group for /menuitems pattern
+
+
+    $app->group('api/resources', function (RouteCollectorProxy $group) {
+
+        
+        // $app->get('/', function (Request $request, Response $response, array $args) {
+        //     $response->getBody()->write("<script>
+        //         alert('Hello there.');
+        //     </script>");
+        //     return $response;
+        // });
+        //Route group for /menuitems pattern
         $group->group('/menuitems', function (RouteCollectorProxy $group) {
-    //Call the index method defined in the MenuItemsController class
-    //MenuItems is the container key defined in dependencies.php.
-            $group->get('', 'MenuItems:index');
-            $group->get('/{id}', 'MenuItems:view');
+        //Call the index method defined in the MenuItemsController class
+        //MenuItems is the container key defined in dependencies.php.
+
+            $group->group('/menuitem', function(RouteCollectorProxy $group){
+                $group->get('', 'MenuItem:index');
+            });
+            // $group->get('', 'MenuItem:index');
+            // $group->get('/{id}', 'MenuItem:view');
         });
     });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // //Route group api/v1 pattern
+    // $app->group('/api/v1', function (RouteCollectorProxy $group) {
+    // //Route group for /menuitems pattern
+    //     $group->group('/menuitems', function (RouteCollectorProxy $group) {
+    // //Call the index method defined in the MenuItemsController class
+    // //MenuItems is the container key defined in dependencies.php.
+    //         $group->get('', 'MenuItems:index');
+    //         $group->get('/{id}', 'MenuItems:view');
+    //     });
+    // });
     // Handle invalid routes
-    $app->any('{route:.*}', function (Request $request, Response $response) {
+    $app->any('{route:.*}', function(Request $request, Response $response) {
         $response->getBody()->write("Page Not Found");
         return $response->withStatus(404);
     });
