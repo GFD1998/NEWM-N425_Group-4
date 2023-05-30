@@ -32,8 +32,8 @@ return function (DI\Container $container) {
                 'driver' => "mysql",
                 'host' => 'localhost',
                 'database' => 'mcdonalds_db',
-                'username' => 'phpuser',
-                'password' => 'phpuser',
+                'username' => 'root',
+                'password' => '',
                 'charset' => 'utf8',
                 'collation' => 'utf8_unicode_ci',
                 'prefix' => ''

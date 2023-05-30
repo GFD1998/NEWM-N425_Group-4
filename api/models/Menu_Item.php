@@ -18,48 +18,59 @@ class Menu_Item extends Model {
 
     public $timestamps = false;
 
-    public static function getMenuItems() {
-        //Retrieve all menu items
-        $menuitems = self::with('menuitemingredient')->get();
-        return $menuitems;
-    }
-    //View a specific item by id
-    public static function getMenuItemById(string $itemID) {
-        $menuitem = self::findOrFail($itemID);
-        $menuitem->load('menuitemingredient');
-        return $menuitem;
-    }
-    // Define the one to many relationship between MenuItem and MenuItemIngredient model classes
-    // The first para is the model class name; the second parameter is the foreign key.
-    public function menuitemingredient() {
-        return $this->hasMany(MenuItemIngredient::class, 'menuitemingredient');
-    }
-    //View all ingredients in a menu item
-    public static function getMenuItemIngredientByMenuItem(string $itemID){
-        $menuitemingredient = self::findOrFail($itemID)->menuitemingredient;
-        return $menuitemingredient;
-    }
-    /*
+    //Columns
+    public $itemID;
+
     public $name;
 
     public $description;
 
     public $price;
-``*/
-  /*  function __constructor(){
 
+    //View a specific item by id.
+    public static function getMenuItemById(string $ID) {
+        $menuitem = self::findOrFail($ID);
+        return $menuitem;
     }
 
-    public function getData(){
-        $data = [$this->itemID, $this->name, $this->description, $this->price];
-        $jsonData = json_encode($data);
+    //View all data from table.
+    public static function getData(){
+        $jsonData = self::all();
         return $jsonData;
     }
-    public function setData($itemID, $name, $description, $price){  
-        $this->itemID = $itemID;
-        $this->name = $name;
-        $this->description = $description;
-        $this->price = $price;
-    }
-*/
+
+    // //Update data in table row.
+    // public static function setData($ingredientID, $name, $description, $price){  
+    //     $this->ingredientID = $ingredientID;
+    //     $this->name = $name;
+    //     $this->description = $description;
+    //     $this->price = $price;
+    // }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+    // public static function getMenuItems() {
+    //     //Retrieve all menu items
+    //     $menuitems = self::with('menuitemingredient')->get();
+    //     return $menuitems;
+    // }
+        // Define the one to many relationship between MenuItem and MenuItemIngredient model classes
+    // The first para is the model class name; the second parameter is the foreign key.
+    // public function menuitemingredient() {
+    //     return $this->hasMany(MenuItemIngredient::class, 'menuitemingredient');
+    // }
+    // //View all ingredients in a menu item
+    // public static function getMenuItemIngredientByMenuItem(string $itemID){
+    //     $menuitemingredient = self::findOrFail($itemID)->menuitemingredient;
+    //     return $menuitemingredient;
+    // }
