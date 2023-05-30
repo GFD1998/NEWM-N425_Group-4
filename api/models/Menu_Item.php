@@ -28,7 +28,7 @@ class Menu_Item extends Model {
     public $price;
 
     //View a specific item by id.
-    public static function getMenuItemById(string $ID) {
+    public static function getDataById(string $ID) {
         $menuitem = self::findOrFail($ID);
         return $menuitem;
     }
@@ -39,13 +39,32 @@ class Menu_Item extends Model {
         return $jsonData;
     }
 
-    // //Update data in table row.
-    // public static function setData($ingredientID, $name, $description, $price){  
-    //     $this->ingredientID = $ingredientID;
-    //     $this->name = $name;
-    //     $this->description = $description;
-    //     $this->price = $price;
-    // }
+    //Search data
+    public static function searchData($term) {
+        if(is_numeric($term)){
+            $query = self::where('itemID', '>=', $term);
+        } else {
+            $query = self::where('name', 'like', "%$term%")
+            ->orWhere('description', 'like', "%$term%")
+            ->orWhere('price', 'like', "%$term%");
+        }
+        return $query->get();
+    }
+
+    //Create data
+    public static function createData($newRequest) {
+        $params = $newRequest->getParseBody();
+
+        $mi = new Menu_Item();
+        
+        foreach($params as $field => $value){
+            $mi->$field = $value;
+        }
+
+        $mi->save();
+
+        return $mi;
+    }
 
 }
 

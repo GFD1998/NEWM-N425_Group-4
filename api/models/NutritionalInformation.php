@@ -44,7 +44,7 @@ class NutritionalInformation extends Model {
     
     public $itemID;
 
-    public static function getNutritionalInformationById(string $ID) {
+    public static function getDataById(string $ID) {
         $nutritionalinformationitem = self::findOrFail($ID);
         return $nutritionalinformationitem;
     }
@@ -55,20 +55,24 @@ class NutritionalInformation extends Model {
         return $jsonData;
     }
 
-    // public function setData($nutritionalInformationID, $servingSize, $calories, $totalFat, $sodium, $cholesterol, $carbohydrates, $sugars, $protein, $vitaminA, $vitaminC, $calcium, $iron, $itemID){
-    //     $this->nutritionalInformationID = $nutritionalInformationID;
-    //     $this->servingSize = $servingSize;
-    //     $this->calories = $calories;
-    //     $this->totalFat = $totalFat;
-    //     $this->sodium = $sodium;
-    //     $this->cholesterol = $cholesterol;
-    //     $this->carbohydrates = $carbohydrates;
-    //     $this->sugars = $sugars;
-    //     $this->protein = $protein;
-    //     $this->vitaminA = $vitaminA;
-    //     $this->vitaminC = $vitaminC;
-    //     $this->calcium = $calcium;
-    //     $this->iron = $iron;
-    //     $this->itemID = $itemID;
-    // }
+    //Search data
+    public static function searchData($term) {
+        if(is_numeric($term)){
+            $query = self::where('nutritionalInformationID', 'like', $term)
+            ->orWhere('servingSize', 'like', "%$term%")
+            ->orWhere('calories', 'like', "%$term%")
+            ->orWhere('totalFat', 'like', "%$term%")
+            ->orWhere('sodium', 'like', "%$term%")
+            ->orWhere('cholesterol', 'like', "%$term%")
+            ->orWhere('carbohydrates', 'like', "%$term%")
+            ->orWhere('sugars', 'like', "%$term%")
+            ->orWhere('protein', 'like', "%$term%")
+            ->orWhere('vitaminA', 'like', "%$term%")
+            ->orWhere('vitaminC', 'like', "%$term%")
+            ->orWhere('calcium', 'like', "%$term%")
+            ->orWhere('iron', 'like', "%$term%")
+            ->orWhere('itemID', 'like', "%$term%");
+        }
+        return $query->get();
+    }
 }

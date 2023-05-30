@@ -14,12 +14,15 @@ use MyCollegeAPI\Controllers\ControllerHelper as Helper;
 class NutritionalInformationController {
     //list all items
     public function index(Request $request, Response $response, array $args) : Response {
-        $results = NutritionalInformation::getData();
+        $params = $request->getQueryParams();
+        $term = array_key_exists('a', $params) ? $params['a'] : "";
+
+        $results = ($term) ? NutritionalInformation::searchData($term) : NutritionalInformation::getData();
         return Helper::withJson($response, $results, 200);
     }
     //view a specific item
     public function view(Request $request, Response $response, array $args) : Response {
-        $results = NutritionalInformation::getNutritionalInformationById($args['element']);
+        $results = NutritionalInformation::getDataById($args['element']);
         return Helper::withJson($response, $results, 200);
     }
 

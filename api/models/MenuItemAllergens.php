@@ -21,7 +21,7 @@ class MenuItemAllergens extends Model {
 
     public $itemID;
 
-    public static function getMenuItemAllergensById(string $ID) {
+    public static function getDataById(string $ID) {
         $menuitemallergensitem = self::findOrFail($ID);
         return $menuitemallergensitem;
     }
@@ -32,19 +32,13 @@ class MenuItemAllergens extends Model {
         return $jsonData;
     }
 
-
-
-
-
-    // public function setData($menuItemAllergensID, $allergenID, $itemID){  
-    //     $this->menuItemAllergensID = $menuItemAllergensID;
-    //     $this->allergenID = $allergenID;
-    //     $this->itemID = $itemID;
-    // }
-
-    // public static function searchData($term){  
-    //         $query = self::where('menuItemAllergensID', 'like', $term)
-    //         ->orWhere('allergenID', 'like', $term)
-    //         ->orWhere('itemID', 'like', $term);
-    // }
+    //Search data
+    public static function searchData($term) {
+        if(is_numeric($term)){
+            $query = self::where('menuItemAllergensID', 'like', $term)
+            ->orWhere('allergenID', 'like', "%$term%")
+            ->orWhere('itemID', 'like', "%$term%");
+        }
+        return $query->get();
+    }
 }

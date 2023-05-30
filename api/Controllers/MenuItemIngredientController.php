@@ -15,12 +15,15 @@ use MyCollegeAPI\Controllers\ControllerHelper as Helper;
 class MenuItemIngredientController {
     //list all items
     public function index(Request $request, Response $response, array $args) : Response {
-        $results = MenuItemIngredient::getData();
+        $params = $request->getQueryParams();
+        $term = array_key_exists('a', $params) ? $params['a'] : "";
+
+        $results = ($term) ? MenuItemIngredient::searchData($term) : MenuItemIngredient::getData();
         return Helper::withJson($response, $results, 200);
     }
     //view a specific item
     public function view(Request $request, Response $response, array $args) : Response {
-        $results = MenuItemIngredient::getMenuItemIngredientById($args['element']);
+        $results = MenuItemIngredient::getDataById($args['element']);
         return Helper::withJson($response, $results, 200);
     }
 

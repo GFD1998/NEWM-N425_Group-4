@@ -92,6 +92,19 @@ return function (App $app) {
             $group->get('', 'MenuItem:index');
             $group->get('/', 'MenuItem:index');
             $group->get('/{element}', 'MenuItem:view');
+            $group->post('', 'MenuItem:create');
+        });
+
+        $group->group('/allergens', function(RouteCollectorProxy $group){
+            $group->get('', 'Allergens:index');
+            $group->get('/', 'Allergens:index');
+            $group->get('/{element}', 'Allergens:view');
+        });
+
+        $group->group('/ingredients', function(RouteCollectorProxy $group){
+            $group->get('', 'Ingredient:index');
+            $group->get('/', 'Ingredient:index');
+            $group->get('/{element}', 'Ingredient:view');
         });
 
         $group->group('/menuitemingredients', function(RouteCollectorProxy $group){
@@ -110,18 +123,6 @@ return function (App $app) {
             $group->get('', 'NutritionalInformation:index');
             $group->get('/', 'NutritionalInformation:index');
             $group->get('/{element}', 'NutritionalInformation:view');
-        });
-
-        $group->group('/allergens', function(RouteCollectorProxy $group){
-            $group->get('', 'Allergens:index');
-            $group->get('/', 'Allergens:index');
-            $group->get('/{element}', 'Allergens:view');
-        });
-
-        $group->group('/ingredients', function(RouteCollectorProxy $group){
-            $group->get('', 'Ingredient:index');
-            $group->get('/', 'Ingredient:index');
-            $group->get('/{element}', 'Ingredient:view');
         });
         // $group->group('/menuitem/{element}', function (RouteCollectorProxy $group, array $args) {
         // //Call the index method defined in the MenuItemsController class

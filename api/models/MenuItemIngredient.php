@@ -21,7 +21,7 @@ class MenuItemIngredient extends Model {
 
     public $itemID;
 
-    public static function getMenuItemIngredientById(string $ID) {
+    public static function getDataById(string $ID) {
         $menuingredientitem = self::findOrFail($ID);
         return $menuingredientitem;
     }
@@ -32,11 +32,14 @@ class MenuItemIngredient extends Model {
         return $jsonData;
     }
 
-    // //Update data in table row.
-    // public static function setData($ingredientID, $name, $description){  
-    //     $this->ingredientID = $ingredientID;
-    //     $this->name = $name;
-    //     $this->description = $description;
-    // }
+    //Search data
+    public static function searchData($term) {
+        if(is_numeric($term)){
+            $query = self::where('menuitemingredientID', 'like', "%$term%")
+            ->orWhere('ingredientID', 'like', "%$term%")
+            ->orWhere('itemID', 'like', "%$term%");
+        }
+        return $query->get();
+    }
 
 }

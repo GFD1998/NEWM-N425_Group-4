@@ -20,7 +20,7 @@ class Ingredient extends Model {
 
     public $description;
 
-    public static function getIngredientById(string $ID) {
+    public static function getDataById(string $ID) {
         $ingredientitem = self::findOrFail($ID);
         return $ingredientitem;
     }
@@ -29,6 +29,17 @@ class Ingredient extends Model {
     public static function getData(){
         $jsonData = self::all();
         return $jsonData;
+    }
+
+    //Search data
+    public static function searchData($term) {
+        if(is_numeric($term)){
+            $query = self::where('IngredientID', '>=', $term);
+        } else {
+            $query = self::where('name', 'like', "%$term%")
+            ->orWhere('description', 'like', "%$term%");
+        }
+        return $query->get();
     }
 
 }
