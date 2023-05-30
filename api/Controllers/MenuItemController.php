@@ -19,6 +19,7 @@ class MenuItemController {
         $term = array_key_exists('a', $params) ? $params['a'] : "";
 
         $results = ($term) ? Menu_Item::searchData($term) : Menu_Item::getData();
+
         return Helper::withJson($response, $results, 200);
     }
     //view a specific item

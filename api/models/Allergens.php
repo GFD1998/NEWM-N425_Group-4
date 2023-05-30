@@ -20,10 +20,6 @@ class Allergens extends Model {
 
     public $description;
 
-    function __constructor(){
-
-    }
-
 
     public static function getDataById(string $ID) {
         $allergensitem = self::findOrFail($ID);
@@ -32,10 +28,12 @@ class Allergens extends Model {
 
     //View all data from table.
     public static function getData(){
-        $jsonData = self::all();
-        return $jsonData;
-    }
-
+        //$jsonData = self::all();
+        //return $jsonData;
+        /*********** code for pagination and sorting *************************/
+        //get the total number of row count
+        $count = self::count();
+        
     //Search data
     public static function searchData($term) {
         if(is_numeric($term)){
@@ -46,5 +44,4 @@ class Allergens extends Model {
         }
         return $query->get();
     }
-
 }

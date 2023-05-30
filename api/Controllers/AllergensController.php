@@ -14,12 +14,10 @@ use MyCollegeAPI\Controllers\ControllerHelper as Helper;
 class AllergensController {
     //list all items
     public function index(Request $request, Response $response, array $args) : Response {
-
         $params = $request->getQueryParams();
         $term = array_key_exists('a', $params) ? $params['a'] : "";
 
         $results = ($term) ? Allergens::searchData($term) : Allergens::getData();
-
         return Helper::withJson($response, $results, 200);
     }
     //view a specific item
