@@ -5,7 +5,7 @@ namespace MyCollegeAPI\Models;
 use Illuminate\Database\Eloquent\Model;
 
 
-class NutritionalInformation{
+class NutritionalInformation extends Model {
     //table name
     protected $table = 'NutritionalInformation';
     //primary key
@@ -43,10 +43,6 @@ class NutritionalInformation{
     public $iron;
     
     public $itemID;
-
-    function __constructor(){
-
-    }
 
     public static function getNutritionalInformationById(string $ID) {
         $nutritionalinformationitem = self::findOrFail($ID);
