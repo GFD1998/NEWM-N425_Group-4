@@ -30,3 +30,9 @@ html, body{
     cursor: pointer;
     box-shadow: 0px 5px 5px #000000;
 }
+
+#results{
+    overflow: scroll;
+    width: 50vw;
+    height: 50vh;
+}
