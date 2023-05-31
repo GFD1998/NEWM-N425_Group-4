@@ -49,8 +49,14 @@ class NutritionalInformation extends Model {
         return $nutritionalinformationitem;
     }
 
+    // Define the one to many relationship between Course and MyClass model classes
+    // The first parameter is the model class name; the second parameter is the foreign key.
+    public function data() {
+        return $this->hasMany(Menu_Item::class, 'itemID');
+    }
+
     //View all data from table.
-    public static function getData(){
+    public static function getData($request){
         //$jsonData = self::all();
         //return $jsonData;
         /*********** code for pagination and sorting *************************/
@@ -68,7 +74,7 @@ class NutritionalInformation extends Model {
         $links = self::getLinks($request, $limit, $offset);
 
         //build query
-        $query = self::with('classes');  //build the query to get all courses
+        /*CHANGE */       $query = self::with('data');  //build the query to get all courses
         $query = $query->skip($offset)->take($limit);  //limit the rows
 
         //code for sorting
@@ -79,7 +85,7 @@ class NutritionalInformation extends Model {
         }
 
         //retrieve the courses
-        $courses = $query->get();  //Finally, run the query and get the results
+        /*CHANGE */     $courses = $query->get();  //Finally, run the query and get the results
 
         //construct the data for response
         $results = [
@@ -93,6 +99,7 @@ class NutritionalInformation extends Model {
 
         return $results;
     }
+
     // Return an array of links for pagination. The array includes links for the current, first, next, and last pages.
     private static function getLinks($request, $limit, $offset) {
         $count = self::count();
@@ -118,6 +125,13 @@ class NutritionalInformation extends Model {
 
         return $links;
     }
+    /*
+     * Sort keys are optionally enclosed in [ ], separated with commas;
+     * Sort directions can be optionally appended to each sort key, separated by :.
+     * Sort directions can be 'asc' or 'desc' and defaults to 'asc'.
+     * Examples: sort=[number:asc,title:desc], sort=[number, title:desc]
+     * This function retrieves sorting keys from uri and returns an array.
+    */
     private static function getSortKeys($request) {
         $sort_key_array = [];
 
@@ -139,7 +153,6 @@ class NutritionalInformation extends Model {
 
         return $sort_key_array;
     }
-
 
     //Search data
     public static function searchData($term) {

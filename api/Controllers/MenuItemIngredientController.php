@@ -18,7 +18,7 @@ class MenuItemIngredientController {
         $params = $request->getQueryParams();
         $term = array_key_exists('a', $params) ? $params['a'] : "";
 
-        $results = ($term) ? MenuItemIngredient::searchData($term) : MenuItemIngredient::getData();
+        $results = ($term) ? MenuItemIngredient::searchData($term) : MenuItemIngredient::getData($request);
         return Helper::withJson($response, $results, 200);
     }
     //view a specific item

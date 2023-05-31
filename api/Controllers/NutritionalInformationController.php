@@ -17,7 +17,7 @@ class NutritionalInformationController {
         $params = $request->getQueryParams();
         $term = array_key_exists('a', $params) ? $params['a'] : "";
 
-        $results = ($term) ? NutritionalInformation::searchData($term) : NutritionalInformation::getData();
+        $results = ($term) ? NutritionalInformation::searchData($term) : NutritionalInformation::getData($request);
         return Helper::withJson($response, $results, 200);
     }
     //view a specific item

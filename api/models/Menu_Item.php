@@ -19,13 +19,13 @@ class Menu_Item extends Model {
     public $timestamps = false;
 
     //Columns
-    public $itemID;
+    // public $itemID;
 
-    public $name;
+    // public $name;
 
-    public $description;
+    // public $description;
 
-    public $price;
+    // public $price;
 
     //View a specific item by id.
     public static function getDataById(string $ID) {
@@ -33,10 +33,16 @@ class Menu_Item extends Model {
         return $menuitem;
     }
 
+    // Define the one to many relationship between Course and MyClass model classes
+    // The first parameter is the model class name; the second parameter is the foreign key.
+    public function data() {
+        return $this->hasMany(Allergens::class, 'AllergenID');
+    }
+
     //View all data from table.
-    public static function getData(){
-       // $jsonData = self::all();
-       // return $jsonData;
+    public static function getData($request){
+        //$jsonData = self::all();
+        //return $jsonData;
         /*********** code for pagination and sorting *************************/
         //get the total number of row count
         $count = self::count();
@@ -52,7 +58,7 @@ class Menu_Item extends Model {
         $links = self::getLinks($request, $limit, $offset);
 
         //build query
-        /*CHANGE */       $query = self::with('classes');  //build the query to get all courses
+        /*CHANGE */       $query = self::with('data');  //build the query to get all courses
         $query = $query->skip($offset)->take($limit);  //limit the rows
 
         //code for sorting
@@ -132,31 +138,35 @@ class Menu_Item extends Model {
         return $sort_key_array;
     }
 
-    //Search data
-    public static function searchData($term) {
-        if(is_numeric($term)){
-            $query = self::where('itemID', '>=', $term);
-        } else {
-            $query = self::where('name', 'like', "%$term%")
-            ->orWhere('description', 'like', "%$term%")
-            ->orWhere('price', 'like', "%$term%");
-        }
-        return $query->get();
-    }
-
     //Create data
     public static function createData($newRequest) {
-        $params = $newRequest->getParseBody();
+        $params = $newRequest->getParsedBody();
 
         $mi = new Menu_Item();
         
         foreach($params as $field => $value){
-            $mi->$field = $value;
+            // $mi->$field = $value;
+            $mi->$field = ($field == "itemID") ? number_format($value, 1) : $value;
         }
 
         $mi->save();
 
         return $mi;
+    }
+
+
+    //Search data
+    public static function searchData($term) {
+        if(is_numeric($term)){
+            $query = self::where('itemID', 'like', $term)
+            ->orWhere('name', 'like', "%$term%")
+            ->orWhere('description', 'like', "%$term%")
+            ->orWhere('price', 'like', "%$term%");
+        }else {
+            $query = self::where('name', 'like', "%$term%")
+            ->orWhere('description', 'like', "%$term%");
+        }
+        return $query->get();
     }
 
 }

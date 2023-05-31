@@ -18,7 +18,7 @@ class MenuItemController {
         $params = $request->getQueryParams();
         $term = array_key_exists('a', $params) ? $params['a'] : "";
 
-        $results = ($term) ? Menu_Item::searchData($term) : Menu_Item::getData();
+        $results = ($term) ? Menu_Item::searchData($term) : Menu_Item::getData($request);
 
         return Helper::withJson($response, $results, 200);
     }

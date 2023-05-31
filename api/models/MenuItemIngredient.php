@@ -26,10 +26,16 @@ class MenuItemIngredient extends Model {
         return $menuingredientitem;
     }
 
+    // Define the one to many relationship between Course and MyClass model classes
+    // The first parameter is the model class name; the second parameter is the foreign key.
+    public function data() {
+        return $this->hasMany(Ingredient::class, 'ingredientID');
+    }
+
     //View all data from table.
-    public static function getData(){
-       // $jsonData = self::all();
-       // return $jsonData;
+    public static function getData($request){
+        //$jsonData = self::all();
+        //return $jsonData;
         /*********** code for pagination and sorting *************************/
         //get the total number of row count
         $count = self::count();
@@ -45,7 +51,7 @@ class MenuItemIngredient extends Model {
         $links = self::getLinks($request, $limit, $offset);
 
         //build query
-        /*CHANGE */       $query = self::with('classes');  //build the query to get all courses
+        /*CHANGE */       $query = self::with('data');  //build the query to get all courses
         $query = $query->skip($offset)->take($limit);  //limit the rows
 
         //code for sorting

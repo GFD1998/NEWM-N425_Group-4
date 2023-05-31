@@ -17,7 +17,7 @@ class AllergensController {
         $params = $request->getQueryParams();
         $term = array_key_exists('a', $params) ? $params['a'] : "";
 
-        $results = ($term) ? Allergens::searchData($term) : Allergens::getData();
+        $results = ($term) ? Allergens::searchData($term) : Allergens::getData($request);
         return Helper::withJson($response, $results, 200);
     }
     //view a specific item

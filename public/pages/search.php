@@ -4,20 +4,67 @@ require "globals/nav.php";
 
 
 <div class='clientContainer'>
-    <input id='tableValue' type='text' placeholder='Enter table...' />
-    <p id='submitBtn'>Submit</p>
+    <select id="table-select" class="form-select" aria-label="McDonald's Search">
+        <option selected>McDonald's Search</option>
+        <option value="menuitems">Menu Items</option>
+        <option value="ingredients">Ingredients</option>
+        <option value="allergens">Allergens</option>
+        <option value="menuitemingredients">Menu Item Ingredients</option>
+        <option value="menuitemallergens">Menu Item Allergens</option>
+        <option value="nutritionalinformation">Nutritional Information</option>
+    </select>
+    <br>
+    <input id='term' type='text' placeholder='Enter term (e.g. bun, burger, etc...)' />
+    <p id='submitBtn' onClick='requestData()'>Submit</p>
+    <br>
+    <div id="results"></div>
 </div>
 
 <script>
     var submitBtn = document.getElementById("submitBtn");
 
-    submitBtn.onclick = () => {
-        if(!document.getElementById("tableValue").value){
-            alert('You must input a resource value.');
-        }else{
+    // submitBtn.onclick = requestData();
+
+    async function requestData(){
+        console.log(document.getElementById("term").value);
+        console.log(document.getElementById("table-select").value);
+        const term = document.getElementById("term").value;
+        const table = document.getElementById("table-select").value;
+        var resultsContainer = document.getElementById("results");
+        var response;
+        if(table == "McDonald's Search") {
+            alert('You must select an element to search.');
+        }else {
             var url = window.location.href;
-            // url = url.split('/')[0];
-            window.location.href = url + '/mcdonalds/' + document.getElementById("tableValue").value;
+            url = url.split('/search')[0];
+            if(!term) {
+                response = await fetch(url + '/api/resources/' + table);
+                // window.location.href = url + '/api/resources/' + table;
+            }else {
+                response = await fetch(url + '/api/resources/' + table + '?a=' + term);
+                // window.location.href = url + '/api/resources/' + table + '?a=' + term;
+            }
+            var term2 = $("#term");
+            const jsonResponse = await response.json();
+            var displayData = Object.keys(jsonResponse.data).map((key) => [key, jsonResponse.data[key]]);
+            console.log(typeof(displayData));
+            displayData.forEach((data) => {
+                // resultsContainer.innerHTML += `<div>${data}</div>`;
+                console.log(data[1]);
+                console.log(data[1].length);
+                
+                for(var i = 0; i < data[1].length;i++){
+                    resultsContainer.innerHTML += `<div>${data}</div>`;
+                    // console.log(data);
+                }
+            });
+
+
+            // return response;
         }
-    };
+    }
+
+    function resultTemplates(){
+
+    }
 </script>
