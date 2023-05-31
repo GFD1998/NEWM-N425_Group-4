@@ -14,6 +14,12 @@
       <PhpSpecSuiteConfiguration>
         <option name="myPath" value="$PROJECT_DIR$" />
       </PhpSpecSuiteConfiguration>
+      <PhpSpecSuiteConfiguration>
+        <option name="myPath" value="$PROJECT_DIR$" />
+      </PhpSpecSuiteConfiguration>
+      <PhpSpecSuiteConfiguration>
+        <option name="myPath" value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4" />
+      </PhpSpecSuiteConfiguration>
     </suites>
   </component>
 </project>
