@@ -44,19 +44,26 @@ require "globals/nav.php";
                 response = await fetch(url + '/api/resources/' + table + '?a=' + term);
                 // window.location.href = url + '/api/resources/' + table + '?a=' + term;
             }
-            var term2 = $("#term");
             const jsonResponse = await response.json();
             var displayData = Object.keys(jsonResponse.data).map((key) => [key, jsonResponse.data[key]]);
             console.log(typeof(displayData));
             displayData.forEach((data) => {
-                // resultsContainer.innerHTML += `<div>${data}</div>`;
-                console.log(data[1]);
-                console.log(data[1].length);
+                // // resultsContainer.innerHTML += `<div>${data}</div>`;
+                // console.log(data[1]);
+                // console.log(data[1].length);
                 
-                for(var i = 0; i < data[1].length;i++){
-                    resultsContainer.innerHTML += `<div>${data}</div>`;
-                    // console.log(data);
-                }
+                // for(var i = 0; i < data[1].length;i++){
+                //     resultsContainer.innerHTML += `<div>${data}</div>`;
+                //     // console.log(data);
+                // }
+                resultsContainer.innerHTML += `<br>`;
+                var data = data[1];
+                $.each(data, (key, pair) => {
+                    console.log(key);
+                    console.log(pair);
+                    resultsContainer.innerHTML += `<div class='results-row'>${key} : ${pair}</div>`;
+                    // console.log(this);
+                });
             });
 
 
