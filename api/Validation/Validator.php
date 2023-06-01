@@ -1,3 +1,5 @@
+<?php
+
 namespace MyCollegeAPI\Validation;
 
 use Respect\Validation\Validator as v;
@@ -26,10 +28,10 @@ class Validator{
     public static function validateMenuItem($request) : bool {
         //Define all the validation rules. Be sure you upgrade PhpStorm to the latest version 2021.3 or above.
        $rules = [
-            'itemID' => v::notEmpty()->alnum()->startsWith('s')->length(5, 5),
-            'name' => v::alnum(' '),
-            'description' => v::alpha(),
-            'price' => v::numericalVal(' ')
+            'itemID' => v::notEmpty()->alnum(),
+            'name' => v::alpha(' '),
+            'description' => v::allof(),
+            'price' => v::numericVal()
         ];
 
         return self::validate($request, $rules);
