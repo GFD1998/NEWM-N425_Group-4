@@ -107,6 +107,7 @@ return function (App $app) {
             $group->get('/', 'MenuItem:index');
             $group->get('/{element}', 'MenuItem:view');
             $group->post('', 'MenuItem:create');
+            $group->delete('/{itemID}', 'MenuItem:delete');
         });
 
         $group->group('/allergens', function(RouteCollectorProxy $group){
