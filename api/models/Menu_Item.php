@@ -154,6 +154,29 @@ class Menu_Item extends Model {
         return $mi;
     }
 
+    //Update data
+    public static function updateData($newRequest) {
+        $params = $newRequest->getParsedBody();
+
+        // $mi = new Menu_Item();
+        $id = $newRequest->getAttribute('id');
+        $mi = self::findOrFail($id);
+        if(!$mi){
+            return false;
+        }
+    
+        //updating attributes of menu item.
+        foreach($params as $field => $value){
+            // $mi->$field = $value;
+            $mi->$field = $value;
+            //($field == "itemID") ? number_format($value, 1) : $value;
+        }
+
+        $mi->save();
+
+        return $mi;
+    }
+
 
     //Search data
     public static function searchData($term) {

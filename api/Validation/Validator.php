@@ -2,6 +2,7 @@
 
 namespace MyCollegeAPI\Validation;
 
+
 use Respect\Validation\Validator as v;
 use Respect\Validation\Exceptions\NestedValidationException;
 
@@ -27,12 +28,20 @@ class Validator{
     //Validate student data.
     public static function validateMenuItem($request) : bool {
         //Define all the validation rules. Be sure you upgrade PhpStorm to the latest version 2021.3 or above.
-       $rules = [
-            'itemID' => v::notEmpty()->alnum(),
-            'name' => v::alpha(' '),
-            'description' => v::allof(),
-            'price' => v::numericVal()
-        ];
+        // if($request->isPost()){
+        //     $rules = [
+        //         'itemID' => v::notEmpty()->alnum(),
+        //         'name' => v::alpha(' '),
+        //         'description' => v::allof(),
+        //         'price' => v::numericVal()
+        //     ];
+        // } else if($request->isPut()) {
+            $rules = [
+                'name' => v::alpha(' '),
+                'description' => v::allof(),
+                'price' => v::numericVal()
+            ];
+        // }
 
         return self::validate($request, $rules);
     }
