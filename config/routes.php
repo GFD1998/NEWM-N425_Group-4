@@ -55,9 +55,23 @@ return function (App $app) {
     $app->get('/update', function (Request $request, Response $response) {
         // require("../public/pages/client.php");
         $response->getBody()->write('' . require "../public/pages/update.php");
-
         return $response;
     });
+
+    $app->get('/update/{table}/{id}', function (Request $request, Response $response, array $args) {
+
+        // $group->get('', 'MenuItem:index');
+        // $resource = $args['resource'];
+        // $response->getBody()->write("Resource: [$resource]");
+        // require("../public/pages/client.php");
+        $response->getBody()->write(`<?php
+        $table = ` . $args['table'] . `;
+        $id = ` . $args['id'] . `;
+        ?>` . require "../public/pages/update.php");
+        return $response;
+    });
+
+
 
     
     $app->get('/delete', function (Request $request, Response $response) {

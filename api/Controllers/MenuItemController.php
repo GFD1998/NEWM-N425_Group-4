@@ -9,6 +9,7 @@ namespace MyCollegeAPI\Controllers;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 use MyCollegeAPI\Models\Menu_Item;
+use MyCollegeAPI\Validation\Validator;
 use MyCollegeAPI\Controllers\ControllerHelper as Helper;
 
 
@@ -29,6 +30,18 @@ class MenuItemController {
     }
 
     public function create(Request $request, Response $response, array $args) : Response{
+        // validate the request
+        $validation = Validator::validateMenuItem($request);
+
+        if(!$validation) {
+            $results = [
+                'status' => "Validation failed",
+                'errors' => Validator::getErrors()
+            ];
+            return Helper::withJson($response, $results, 500);
+        }
+
+
         $mi = Menu_Item::createData($request);
         
         if(!$mi){

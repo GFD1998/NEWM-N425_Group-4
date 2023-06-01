@@ -29,6 +29,9 @@ require "globals/nav.php";
         console.log(document.getElementById("table-select").value);
         const term = document.getElementById("term").value;
         const table = document.getElementById("table-select").value;
+        console.log(table);
+        const tableID = table + 'ID';
+        console.log(tableID);
         var resultsContainer = document.getElementById("results");
         resultsContainer.innerHTML = '';
         var response;
@@ -44,13 +47,34 @@ require "globals/nav.php";
                 console.log(displayData);
 
                 displayData.forEach((data) => {
+                    var rowID;
                     resultsContainer.innerHTML += `<br>`;
                     var data = data[1];
+                    var rows;
+                    console.log(data);
+                    if(data.menuitemID){
+                        rowID = data.menuitemID;
+                    }
+                    if(data.ingredientID){
+                        rowID = data.ingredientID;
+                    }
+                    if(data.allergenID){
+                        rowID = data.allergenID;
+                    }
+                    if(data.menuitemingredientID){
+                        rowID = data.menuitemingredientID;
+                    }
+                    if(data.menuitemallergenID){
+                        rowID = data.menuitemallergenID;
+                    }
+                    if(data.nutritionalInformationID){
+                        rowID = data.nutritionalInformationID;
+                    }
                     $.each(data, (key, pair) => {
-                        console.log(key);
-                        console.log(pair);
-                        resultsContainer.innerHTML += `<div class='results-row'>${key} : ${pair}</div>`;
+                        rows += `<div  class='results-row'>${key} : ${pair}</div>`;
                     });
+                    console.log(rowID);
+                    resultsContainer.innerHTML += `<br><a class="rowLinks" href=${url}/update/${table}/${rowID}>${rows}</a>`;
                 });
             }else {
                 console.log(url + '/api/resources/' + table + '?a=' + term);
@@ -60,13 +84,34 @@ require "globals/nav.php";
                 console.log(jsonResponse);
                 console.log(displayData);
                 $.each(displayData, (dataKey, data) => {
+                    var rowID;
                     console.log(data);
-                    resultsContainer.innerHTML += `<br>`;
+                    var rows;
+                    if(data.menuitemID){
+                        rowID = data.menuitemID;
+                    }
+                    if(data.ingredientID){
+                        rowID = data.ingredientID;
+                    }
+                    if(data.allergenID){
+                        rowID = data.allergenID;
+                    }
+                    if(data.menuitemingredientID){
+                        rowID = data.menuitemingredientID;
+                    }
+                    if(data.menuitemallergenID){
+                        rowID = data.menuitemallergenID;
+                    }
+                    if(data.nutritionalInformationID){
+                        rowID = data.nutritionalInformationID;
+                    }
+
                     $.each(data, (key, pair) => {
                         console.log(key);
                         console.log(pair);
-                        resultsContainer.innerHTML += `<div class='results-row'>${key} : ${pair}</div>`;
+                        rows += `<div class='results-row'>${key} : ${pair}</div>`;
                     });
+                    resultsContainer.innerHTML += `<br><a href=${url}/update/${table}/${data[`${rowID}`]}>${rows}</a>`;
                 });
             }
         }
