@@ -191,7 +191,14 @@ class Menu_Item extends Model {
         }
         return $query->get();
     }
-
+    
+    //Delete a Menu Item
+    public static function deleteMenuItem($request) {
+        //Retrieve id from the request
+        $id = $request->getAttribute('itemID');
+        $menuitem = self::findOrFail($id);
+        return($menuitem ? $menuitem->delete() : $menuitem);
+    }
 }
 
 

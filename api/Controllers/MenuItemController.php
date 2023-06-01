@@ -56,6 +56,18 @@ class MenuItemController {
 
         return Helper::withJson($response, $results, 200);
     }
+    
+    //Delete a Menu Item
+    public function delete(Request $request, Response $response, array $args) : Response {
+        $menuitem = Menu_Item::deleteMenuItem($request);
+        if(!$menuitem) {
+            $results['status']= "Menu Item cannot be deleted.";
+            return Helper::withJson($response, $results, 500);
+        }
+
+        $results['status'] = "Menu Item has been deleted.";
+        return Helper::withJson($response, $results, 200);
+    }
 
 
 
