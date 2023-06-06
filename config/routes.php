@@ -11,6 +11,13 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Routing\RouteCollectorProxy;
 use Slim\Routing\RouteContext;
+use MyCollegeAPI\Authentication\{
+    MyAuthenticator,
+    BasicAuthenticator,
+    BearerAuthenticator,
+    JWTAuthenticator,
+    OAuth2Authenticator
+};
 
 return function (App $app) {
     // move app routes here
@@ -27,6 +34,18 @@ return function (App $app) {
         $response->getBody()->write("Hello, $name");
 
         return $response;
+    });
+
+    $app->group('/api/resources/users', function (RouteCollectorProxy $group) {
+        $group->get('', 'User:index');
+        $group->get('/oauth2','User:oauth2');
+        $group->get('/{id}', 'User:view');
+        $group->post('', 'User:create');
+        $group->put('/{id}', 'User:update');
+        $group->delete('/{id}', 'User:delete');
+        $group->post('/authBearer', 'User:authBearer');
+        $group->post('/authJWT', 'User:authJWT');
+        
     });
 
     $app->get('/client/mcdonalds/{resource}', function (Request $request, Response $response, array $args) {
@@ -147,35 +166,18 @@ return function (App $app) {
         //     // $group->get('', 'MenuItem:index');
         //     // $group->get('/{id}', 'MenuItem:view');
         // });
-    });
+    //});
+    //})->add(new MyAuthenticator());  //MyAuthentication
+    })->add(new BasicAuthenticator());
+    // })->add(new BearerAuthenticator());
+    // })->add(new JWTAuthenticator());
+// })->add(new OAuth2Authenticator());
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-    // //Route group api/v1 pattern
-    // $app->group('/api/v1', function (RouteCollectorProxy $group) {
-    // //Route group for /menuitems pattern
-    //     $group->group('/menuitems', function (RouteCollectorProxy $group) {
-    // //Call the index method defined in the MenuItemsController class
-    // //MenuItems is the container key defined in dependencies.php.
-    //         $group->get('', 'MenuItems:index');
-    //         $group->get('/{id}', 'MenuItems:view');
-    //     });
-    // });
-    // Handle invalid routes
     $app->any('{route:.*}', function(Request $request, Response $response) {
         $response->getBody()->write("Page Not Found");
         return $response->withStatus(404);

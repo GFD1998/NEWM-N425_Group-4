@@ -12,6 +12,7 @@ use MyCollegeAPI\Controllers\AllergensController;
 use MyCollegeAPI\Controllers\MenuItemIngredientController;
 use MyCollegeAPI\Controllers\MenuItemAllergensController;
 use MyCollegeAPI\Controllers\NutritionalInformationController;
+use MyCollegeAPI\Controllers\UserController;
 
     return function(Container $container) {
     // Set a dependency called "MenuItem"
@@ -39,4 +40,7 @@ use MyCollegeAPI\Controllers\NutritionalInformationController;
             return new NutritionalInformationController();
         });
 
+        $container->set('User', function() {
+            return new UserController();
+        });
     };
