@@ -7,7 +7,7 @@
  * Date: 06/04/2023
  */
 
-namespace MyCollegeAPI\Authentication;
+namespace McDonaldsAPI\Authentication;
 
 use Slim\Psr7\Response;
 

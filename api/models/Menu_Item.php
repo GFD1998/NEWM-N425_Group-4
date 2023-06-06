@@ -5,7 +5,7 @@
  * File: Professor.php
  * Description: defines the professor model class
  */
-namespace MyCollegeAPI\Models;
+namespace McDonaldsAPI\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class Menu_Item extends Model {

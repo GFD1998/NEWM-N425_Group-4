@@ -11,7 +11,7 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Routing\RouteCollectorProxy;
 use Slim\Routing\RouteContext;
-use MyCollegeAPI\Authentication\{
+use McDonaldsAPI\Authentication\{
     MyAuthenticator,
     BasicAuthenticator,
     BearerAuthenticator,
@@ -36,7 +36,7 @@ return function (App $app) {
         return $response;
     });
 
-    $app->group('/api/resources/users', function (RouteCollectorProxy $group) {
+    $app->group('/api/v1/users', function (RouteCollectorProxy $group) {
         $group->get('', 'User:index');
         $group->get('/oauth2','User:oauth2');
         $group->get('/{id}', 'User:view');
@@ -111,7 +111,7 @@ return function (App $app) {
 
 
 
-    $app->group('/api/resources', function (RouteCollectorProxy $group) {
+    $app->group('/api/v1', function (RouteCollectorProxy $group) {
         
         // $group->get('', 'MenuItem:index');
         
@@ -166,9 +166,9 @@ return function (App $app) {
         //     // $group->get('', 'MenuItem:index');
         //     // $group->get('/{id}', 'MenuItem:view');
         // });
-    //});
+    });
     //})->add(new MyAuthenticator());  //MyAuthentication
-    })->add(new BasicAuthenticator());
+    // })->add(new BasicAuthenticator());
     // })->add(new BearerAuthenticator());
     // })->add(new JWTAuthenticator());
 // })->add(new OAuth2Authenticator());

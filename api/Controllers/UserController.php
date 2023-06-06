@@ -8,14 +8,14 @@
  */
 
 
- namespace MyCollegeAPI\Controllers;
+ namespace McDonaldsAPI\Controllers;
 
  use Psr\Http\Message\ServerRequestInterface as Request;
  use Psr\Http\Message\ResponseInterface as Response;
- use MyCollegeAPI\Controllers\ControllerHelper as Helper;
- use MyCollegeAPI\Validation\Validator;
- use MyCollegeAPI\Models\User;
- use MyCollegeAPI\Models\Token;
+ use McDonaldsAPI\Controllers\ControllerHelper as Helper;
+ use McDonaldsAPI\Validation\Validator;
+ use McDonaldsAPI\Models\User;
+ use McDonaldsAPI\Models\Token;
 
 
 class UserController{

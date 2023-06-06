@@ -1,6 +1,6 @@
 <?php
 
-namespace MyCollegeAPI\Validation;
+namespace McDonaldsAPI\Validation;
 
 
 use Respect\Validation\Validator as v;

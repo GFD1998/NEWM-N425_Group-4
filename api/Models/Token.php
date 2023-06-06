@@ -8,7 +8,7 @@
  */
 
 
-namespace MyCollegeAPI\Models;
+namespace McDonaldsAPI\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

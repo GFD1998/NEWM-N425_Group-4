@@ -5,12 +5,12 @@
  * File: MenuItemController.php
  * Description: file to control menu item Models
  */
-namespace MyCollegeAPI\Controllers;
+namespace McDonaldsAPI\Controllers;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
-use MyCollegeAPI\Models\Menu_Item;
-use MyCollegeAPI\Validation\Validator;
-use MyCollegeAPI\Controllers\ControllerHelper as Helper;
+use McDonaldsAPI\Models\Menu_Item;
+use McDonaldsAPI\Validation\Validator;
+use McDonaldsAPI\Controllers\ControllerHelper as Helper;
 
 
 class MenuItemController {

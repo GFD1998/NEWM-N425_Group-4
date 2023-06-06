@@ -10,12 +10,12 @@
  */
 
 
- namespace MyCollegeAPI\Authentication;
+ namespace McDonaldsAPI\Authentication;
 
 use Slim\Psr7\Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
-use MyCollegeAPI\Models\User;
+use McDonaldsAPI\Models\User;
 
 class BasicAuthenticator{
     public function __invoke(Request $request, RequestHandler $handler) : Response {
@@ -35,7 +35,7 @@ class BasicAuthenticator{
         if(!User::authenticateUser($user, $password)) {
             $results = array('status' => 'Authentication failed');
             $response = AuthenticationHelper::withJson($results, 403);
-            return $response->withHeader('WWW-Authenticate', 'Basic realm="MyCollegeAPI API"');
+            return $response->withHeader('WWW-Authenticate', 'Basic realm="McDonaldsAPI API"');
         }
 
         return $handler->handle($request);

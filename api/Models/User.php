@@ -7,7 +7,7 @@
  */
 
 
- namespace MyCollegeAPI\Models;
+ namespace McDonaldsAPI\Models;
 
  use Illuminate\Database\Eloquent\Model;
 use Firebase\JWT\JWT;
@@ -17,7 +17,7 @@ use Google\Service\Oauth2;
 
 class User extends Model{
 
-    const JWT_KEY = 'MyCollegeAPI-api-v2$';
+    const JWT_KEY = 'McDonaldsAPI-api-v2$';
     const JWT_EXPIRE = 3600;
 
 

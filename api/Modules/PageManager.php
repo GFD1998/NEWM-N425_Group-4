@@ -2,7 +2,7 @@
 
 
 
-namespace MyCollegeAPI\Modules;
+namespace McDonaldsAPI\Modules;
 
 class PageManager{
 

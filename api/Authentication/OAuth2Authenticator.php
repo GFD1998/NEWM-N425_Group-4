@@ -13,12 +13,12 @@
 
 
 
-namespace MyCollegeAPI\Authentication;
+namespace McDonaldsAPI\Authentication;
 
 use Slim\Psr7\Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
-use MyCollegeAPI\Models\User;
+use McDonaldsAPI\Models\User;
 
 class OAuth2Authenticator {
     public function __invoke(Request $request, RequestHandler $handler) : Response {
