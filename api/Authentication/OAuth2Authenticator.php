@@ -25,7 +25,6 @@ class OAuth2Authenticator {
         if(!$request->hasHeader('Authorization')) {
             $results = ['Status' => 'Authorization header not available'];
             return AuthenticationHelper::withJson($results, 401);
-
         }
 
 

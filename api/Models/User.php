@@ -99,12 +99,19 @@ class User extends Model{
  */
     //Authenticate a user by username and password
     public static function authenticateUser($username,$password){
+        echo $username . $password;
         $user =self::where('username',$username)->first();
         if(!$user) {
             return false;
         }
 
-        return password_verify($password, $user->password) ? $user : false;
+        // $hashedPassword = password_hash($password, 'sha1');
+
+
+        // $user->password;
+        //password_verify($password, $user->password)
+
+        return ($password == $user->password) ? $user : false;
     }
 
 

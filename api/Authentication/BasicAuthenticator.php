@@ -33,7 +33,7 @@ class BasicAuthenticator{
 
 
         if(!User::authenticateUser($user, $password)) {
-            $results = array('status' => 'Authentication failed');
+            $results = array('status' => 'Authentication failed | ' . $user . ' | ' . $password);
             $response = AuthenticationHelper::withJson($results, 403);
             return $response->withHeader('WWW-Authenticate', 'Basic realm="McDonaldsAPI API"');
         }

@@ -166,9 +166,9 @@ return function (App $app) {
         //     // $group->get('', 'MenuItem:index');
         //     // $group->get('/{id}', 'MenuItem:view');
         // });
-    });
+    // });
     //})->add(new MyAuthenticator());  //MyAuthentication
-    // })->add(new BasicAuthenticator());
+    })->add(new BasicAuthenticator());
     // })->add(new BearerAuthenticator());
     // })->add(new JWTAuthenticator());
 // })->add(new OAuth2Authenticator());
