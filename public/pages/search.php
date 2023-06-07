@@ -41,7 +41,7 @@ require "globals/nav.php";
             var url = window.location.href;
             url = url.split('/search')[0];
             if(!term) {
-                response = await fetch(url + '/api/resources/' + table);
+                response = await fetch(url + '/api/v1/' + table);
                 const jsonResponse = await response.json();
                 var displayData = Object.keys(jsonResponse.data).map((key) => [key, jsonResponse.data[key]]);
                 console.log(displayData);
@@ -77,8 +77,8 @@ require "globals/nav.php";
                     resultsContainer.innerHTML += `<br><a class="rowLinks" href=${url}/update/${table}/${rowID}>${rows}</a>`;
                 });
             }else {
-                console.log(url + '/api/resources/' + table + '?a=' + term);
-                response = await fetch(url + '/api/resources/' + table + '?a=' + term);
+                console.log(url + '/api/v1/' + table + '?a=' + term);
+                response = await fetch(url + '/api/v1/' + table + '?a=' + term);
                 const jsonResponse = await response.json();
                 var displayData = jsonResponse;
                 console.log(jsonResponse);

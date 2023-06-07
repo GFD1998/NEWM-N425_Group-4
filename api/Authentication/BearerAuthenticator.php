@@ -1,8 +1,5 @@
 <?php
 
-
-
-
 /**
  * 
  * Author: Gabriel Dennett
@@ -15,7 +12,8 @@
  use Slim\Psr7\Response;
  use Psr\Http\Message\ServerRequestInterface as Request;
  use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
- use McDonaldsAPI\Models\User;
+ use McDonaldsAPI\Models\Token;
+ 
 
 
  class BearerAuthenticator {

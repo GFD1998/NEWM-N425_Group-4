@@ -25,9 +25,7 @@ class Validator{
         return empty(self::$errors);
     }
 
-    //Validate student data.
     public static function validateMenuItem($request) : bool {
-        //Define all the validation rules. Be sure you upgrade PhpStorm to the latest version 2021.3 or above.
         // if($request->isPost()){
         //     $rules = [
         //         'itemID' => v::notEmpty()->alnum(),
@@ -48,7 +46,7 @@ class Validator{
 
     public static function validateUser($request) : bool{
         $rules = [
-            'name' => v::alnum(''),
+            'name' => v::notEmpty(),
             'email' => v::email(),
             'username' => v::notEmpty(),
             'password' => v::notEmpty(),

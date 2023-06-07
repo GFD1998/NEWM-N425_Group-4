@@ -1,8 +1,5 @@
 <?php
 
-
-
-
 /**
  * 
  * Author: Gabriel Dennett

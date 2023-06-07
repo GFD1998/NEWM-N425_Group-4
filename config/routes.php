@@ -45,7 +45,6 @@ return function (App $app) {
         $group->delete('/{id}', 'User:delete');
         $group->post('/authBearer', 'User:authBearer');
         $group->post('/authJWT', 'User:authJWT');
-        
     });
 
     $app->get('/client/mcdonalds/{resource}', function (Request $request, Response $response, array $args) {
@@ -167,10 +166,10 @@ return function (App $app) {
         //     // $group->get('/{id}', 'MenuItem:view');
         // });
     // });
-    //})->add(new MyAuthenticator());  //MyAuthentication
-    })->add(new BasicAuthenticator());
+    //})->add(new MyAuthenticator());
+    // })->add(new BasicAuthenticator());
     // })->add(new BearerAuthenticator());
-    // })->add(new JWTAuthenticator());
+    })->add(new JWTAuthenticator());
 // })->add(new OAuth2Authenticator());
 
 
