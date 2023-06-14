@@ -6,13 +6,12 @@
  * Description: file to handle dependencies
  */
 use DI\Container;
-use McDonaldsAPI\Controllers\MenuItemController;
-use McDonaldsAPI\Controllers\IngredientController;
-use McDonaldsAPI\Controllers\AllergensController;
-use McDonaldsAPI\Controllers\MenuItemIngredientController;
-use McDonaldsAPI\Controllers\MenuItemAllergensController;
-use McDonaldsAPI\Controllers\NutritionalInformationController;
-use McDonaldsAPI\Controllers\UserController;
+use MyCollegeAPI\Controllers\MenuItemController;
+use MyCollegeAPI\Controllers\IngredientController;
+use MyCollegeAPI\Controllers\AllergensController;
+use MyCollegeAPI\Controllers\MenuItemIngredientController;
+use MyCollegeAPI\Controllers\MenuItemAllergensController;
+use MyCollegeAPI\Controllers\NutritionalInformationController;
 
     return function(Container $container) {
     // Set a dependency called "MenuItem"
@@ -40,7 +39,4 @@ use McDonaldsAPI\Controllers\UserController;
             return new NutritionalInformationController();
         });
 
-        $container->set('User', function() {
-            return new UserController();
-        });
     };

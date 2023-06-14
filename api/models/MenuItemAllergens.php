@@ -1,6 +1,6 @@
 <?php
 
-namespace McDonaldsAPI\Models;
+namespace MyCollegeAPI\Models;
 use Illuminate\Database\Eloquent\Model;
 
 
