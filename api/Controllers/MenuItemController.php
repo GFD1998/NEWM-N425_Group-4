@@ -5,11 +5,12 @@
  * File: MenuItemController.php
  * Description: file to control menu item Models
  */
-namespace MyCollegeAPI\Controllers;
+namespace McDonaldsAPI\Controllers;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
-use MyCollegeAPI\Models\Menu_Item;
-use MyCollegeAPI\Controllers\ControllerHelper as Helper;
+use McDonaldsAPI\Models\Menu_Item;
+use McDonaldsAPI\Validation\Validator;
+use McDonaldsAPI\Controllers\ControllerHelper as Helper;
 
 
 class MenuItemController {
@@ -29,6 +30,18 @@ class MenuItemController {
     }
 
     public function create(Request $request, Response $response, array $args) : Response{
+        // validate the request
+        $validation = Validator::validateMenuItem($request);
+
+        if(!$validation) {
+            $results = [
+                'status' => "Validation failed",
+                'errors' => Validator::getErrors()
+            ];
+            return Helper::withJson($response, $results, 500);
+        }
+
+
         $mi = Menu_Item::createData($request);
         
         if(!$mi){
@@ -43,5 +56,50 @@ class MenuItemController {
 
         return Helper::withJson($response, $results, 200);
     }
+    
+    //Delete a Menu Item
+    public function delete(Request $request, Response $response, array $args) : Response {
+        $menuitem = Menu_Item::deleteMenuItem($request);
+        if(!$menuitem) {
+            $results['status']= "Menu Item cannot be deleted.";
+            return Helper::withJson($response, $results, 500);
+        }
+
+        $results['status'] = "Menu Item has been deleted.";
+        return Helper::withJson($response, $results, 200);
+    }
+
+
+
+    public function update(Request $request, Response $response, array $args) : Response{
+        // validate the request
+        $validation = Validator::validateMenuItem($request);
+
+        if(!$validation) {
+            $results = [
+                'status' => "Validation failed",
+                'errors' => Validator::getErrors()
+            ];
+            return Helper::withJson($response, $results, 500);
+        }
+
+
+        $mi = Menu_Item::updateData($request);
+        
+        if(!$mi){
+            $results['status'] = "Menu Item failed to populate.";
+            return Helper::withJson($response, $results, 500);
+        }
+
+        $results = [
+            'status' => "Menu Item was updated successfully.",
+            'data' => $mi
+        ];
+
+        return Helper::withJson($response, $results, 200);
+    }
+
+
+    
 
 }

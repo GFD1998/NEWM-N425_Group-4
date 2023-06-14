@@ -5,7 +5,7 @@
  * File: ControllerHelper.php
  * Description: file that defines a class with one static method
  */
-namespace MyCollegeAPI\Controllers;
+namespace McDonaldsAPI\Controllers;
 
 use Psr\Http\Message\ResponseInterface as Response;
 

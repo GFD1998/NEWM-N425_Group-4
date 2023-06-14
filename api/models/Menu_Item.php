@@ -5,7 +5,7 @@
  * File: Professor.php
  * Description: defines the professor model class
  */
-namespace MyCollegeAPI\Models;
+namespace McDonaldsAPI\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class Menu_Item extends Model {
@@ -154,6 +154,29 @@ class Menu_Item extends Model {
         return $mi;
     }
 
+    //Update data
+    public static function updateData($newRequest) {
+        $params = $newRequest->getParsedBody();
+
+        // $mi = new Menu_Item();
+        $id = $newRequest->getAttribute('id');
+        $mi = self::findOrFail($id);
+        if(!$mi){
+            return false;
+        }
+    
+        //updating attributes of menu item.
+        foreach($params as $field => $value){
+            // $mi->$field = $value;
+            $mi->$field = $value;
+            //($field == "itemID") ? number_format($value, 1) : $value;
+        }
+
+        $mi->save();
+
+        return $mi;
+    }
+
 
     //Search data
     public static function searchData($term) {
@@ -168,7 +191,14 @@ class Menu_Item extends Model {
         }
         return $query->get();
     }
-
+    
+    //Delete a Menu Item
+    public static function deleteMenuItem($request) {
+        //Retrieve id from the request
+        $id = $request->getAttribute('itemID');
+        $menuitem = self::findOrFail($id);
+        return($menuitem ? $menuitem->delete() : $menuitem);
+    }
 }
 
 

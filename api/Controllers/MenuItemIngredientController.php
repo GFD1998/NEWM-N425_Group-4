@@ -5,11 +5,11 @@
  * File: MenuItemIngredientController.php
  * Description: file to control menuitemingredient model
  */
-namespace MyCollegeAPI\Controllers;
+namespace McDonaldsAPI\Controllers;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
-use MyCollegeAPI\Models\MenuItemIngredient;
-use MyCollegeAPI\Controllers\ControllerHelper as Helper;
+use McDonaldsAPI\Models\MenuItemIngredient;
+use McDonaldsAPI\Controllers\ControllerHelper as Helper;
 
 
 class MenuItemIngredientController {
