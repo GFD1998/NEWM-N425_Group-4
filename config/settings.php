@@ -25,7 +25,7 @@ return function (DI\Container $container) {
              * is stored at htdocs/I425/mycollege-api. So the base path is '/I425/mycollege-api'.
             */
             //set base path
-            'basePath' => '/I425/NEWM-N425_Group-4',
+            'basePath' => '/projects/NEWM-N425_Group-4',
 
             //database settings
             'db' => [
@@ -33,7 +33,7 @@ return function (DI\Container $container) {
                 'host' => 'localhost',
                 'database' => 'mcdonalds_db',
                 'username' => 'root',
-                'password' => 'root',
+                'password' => '',
                 'charset' => 'utf8',
                 'collation' => 'utf8_unicode_ci',
                 'prefix' => ''
