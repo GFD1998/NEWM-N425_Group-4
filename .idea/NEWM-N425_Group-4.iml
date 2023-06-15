@@ -87,6 +87,9 @@
       <excludeFolder url="file:///Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/respect/validation" />
     </content>
     <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/api" isTestSource="false" packagePrefix="MyCollegeAPI\" />
+      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/fig/http-message-util" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/serializable-closure" />
