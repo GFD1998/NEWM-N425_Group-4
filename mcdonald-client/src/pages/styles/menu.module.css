@@ -1,0 +1,21 @@
+
+.menuContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+}
+
+.menuList{
+    display: flex;
+    flex-direction: column;
+}
+
+.menuItem{
+    
+}
+
+.menuInput{
+    
+}
+
