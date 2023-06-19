@@ -19,6 +19,19 @@ use McDonaldsAPI\Authentication\{
     OAuth2Authenticator
 };
 
+//Set up CORS (Cross-Origin Resource Sharing) https://www.slimframework.com/docs/v4/cookbook/enable-cors.html
+$app->options('/{routes:.+}', function ($request, $response, $args) {
+    return $response;
+});
+
+$app->add(function ($request, $handler) {
+    $response = $handler->handle($request);
+    return $response
+        ->withHeader('Access-Control-Allow-Origin', '*')
+        ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
+        ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+});
+
 return function (App $app) {
     // move app routes here
     $app->get('/', function (Request $request, Response $response, array $args) {
@@ -165,11 +178,11 @@ return function (App $app) {
         //     // $group->get('', 'MenuItem:index');
         //     // $group->get('/{id}', 'MenuItem:view');
         // });
-    // });
-    //})->add(new MyAuthenticator());
+    });
+    // })->add(new MyAuthenticator());
     // })->add(new BasicAuthenticator());
     // })->add(new BearerAuthenticator());
-    })->add(new JWTAuthenticator());
+    // })->add(new JWTAuthenticator());
 // })->add(new OAuth2Authenticator());
 
 
