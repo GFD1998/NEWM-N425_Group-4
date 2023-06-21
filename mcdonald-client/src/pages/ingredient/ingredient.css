@@ -1,0 +1,116 @@
+/* Styles for the list of ingredients */
+.ingredient-container{
+    margin: 10px auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.ingredient-container > div:nth-child(odd) {
+    background-color: #f8f9fa;
+}
+.ingredient-row {
+    width: 100%;
+    min-height: 35px;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 1px solid #e4f1fe;
+}
+
+.ingredient-row-header {
+    font-weight: bold;
+    font-size: 14px;
+    color: #22252c;
+    background-color: #cccccc !important;
+    border-top: 2px solid #e4f1fe;
+    border-bottom: 1px solid #e4f1fe;
+}
+
+.ingredient-row div:nth-child(1) {
+    width: 15%
+}
+
+.ingredient-row div:nth-child(2) {
+    width: 45%
+}
+
+.ingredient-row div:nth-child(3) {
+    width: 15%
+}
+
+.ingredient-row div:nth-child(4) {
+    width: 25%
+}
+
+
+/* styles for details of a specific ingredient */
+
+.ingredient-detail-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.ingredient-detail-row {
+    border-top: #b7d2ff solid 0px;
+    border-bottom: #b7d2ff solid 1px;
+    margin-bottom: 0px;
+    display: flex;
+    flex-direction: row;
+}
+
+.ingredient-detail-row div {
+    padding: 3px 10px;
+}
+
+.ingredient-detail-row div:nth-child(1) {
+    min-width: 120px;
+    text-align: right;
+    font-weight: bold;
+    border-right: #b7d2ff solid 1px;
+}
+
+
+/* styles for pagination and sorting */
+.ingredient-pagination-container {
+    display: flex;
+    justify-content: right;
+    margin-bottom: 50px;
+}
+
+.ingredient-pagination select {
+    font-size: small;
+}
+
+.ingredient-pagination {
+    text-align: right;
+    font-size: 0.9em;
+    margin-right: 20px;
+}
+
+.ingredient-pagination  a {
+    font-size: smaller;
+    border-radius: 3px;
+    border: 1px solid #e4f1fe;
+    min-width: 20px;
+    padding: 1px 6px;
+    display: inline-block;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.ingredient-pagination a:hover {
+    background-color: #f8f9fa;
+}
+
+.ingredient-sorting {
+    text-align: right;
+    font-size: 0.9em;
+}
+
+.ingredient-pagination select,
+.ingredient-sorting select {
+    font-size: smaller;
+}
