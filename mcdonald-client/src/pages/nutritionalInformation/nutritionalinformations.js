@@ -15,7 +15,7 @@ const NutritionalInformations = () => {
     const [subHeading, setSubHeading] = useState("All Nutritional Information");
     const url = settings.baseApiUrl + "/nutritionalinformation";
 
-    const mi = get();
+    // const mi = get();
 
 
     // console.log(mi);
