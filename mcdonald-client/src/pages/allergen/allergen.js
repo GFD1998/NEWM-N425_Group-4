@@ -1,38 +1,45 @@
 import {settings} from "../../config/config";
-import {NavLink, Outlet, useLocation} from "react-router-dom";
-import {useState, useEffect} from "react";
-import useXmlHttp from "../../services/useXmlHttp";
+import useXmlHttp from '../../services/useXmlHttp';
+import {useParams, Link, Outlet, useOutletContext} from "react-router-dom";
+import './allergen.css';
 import {useAuth} from "../../services/useAuth";
-import MenuStyles from "../styles/menu.module.css";
 
 const Allergen = () => {
     const {user} = useAuth();
-    const {pathname} = useLocation();
-    const [subHeading, setSubHeading] = useState("All Allergens");
-    const url = settings.baseApiUrl + "/allergen";
-
+    const [subHeading, setSubHeading] = useOutletContext();
+    const allergenId = window.location.toString().split("allergens/")[1];
+    const url = settings.baseApiUrl + "/allergens/" + allergenId;
+    console.log(url);
     const {
         error,
         isLoading,
-        data: allergens
+        data: allergen
     } = useXmlHttp(url, "GET", {Authorization:`Bearer ${user.jwt}`});
 
-    useEffect(() => {
-        setSubHeading("All Allergens");
-    }, [pathname]);
     return (
-       <>
-           <div className="main-heading">
-               <div className="container">Allergens</div>
-           </div>
-           <div className="sub-heading">
-               <div className="container">Welcome to the Allergens Dashboard</div>
-           </div>
-           <div className="main-content container">
-
-           </div>
-       </>
-   );
+        <>
+            {/* {error && <div>{error}</div>} */}
+            {isLoading &&
+                <div className="image-loading">
+                    Please wait while data is being loaded
+                    <img src={require(`../loading.gif`)} alt="Loading ......"/>
+                </div>}
+            {allergen && 
+            <>
+                {setSubHeading(allergen.name)}
+                <div className="allergen-details">
+                    <div className="allergen-info">
+                        <div><strong>ID</strong>: {allergen.allergenID}</div>
+                        <div><strong>Item Name</strong>: {allergen.name}</div>
+                        <div><strong>Description</strong>: {allergen.description}</div>
+                    </div>
+                </div>
+                <div className="allergen-classes">
+                    <Outlet/>
+                </div>
+            </>}
+        </>
+    );
 };
 
 export default Allergen;

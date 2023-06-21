@@ -18,36 +18,13 @@ class MenuItemController {
         $params = $request->getQueryParams();
         $term = array_key_exists('a', $params) ? $params['a'] : "";
 
-<<<<<<< Updated upstream
         $results = ($term) ? Menu_Item::searchData($term) : Menu_Item::getData($request);
 
-=======
-        $results = ($term) ? Menu_Item::searchData($term) : Menu_Item::getData();
->>>>>>> Stashed changes
         return Helper::withJson($response, $results, 200);
     }
     //view a specific item
     public function view(Request $request, Response $response, array $args) : Response {
         $results = Menu_Item::getDataById($args['element']);
-<<<<<<< Updated upstream
-=======
-        return Helper::withJson($response, $results, 200);
-    }
-
-    public function create(Request $request, Response $response, array $args) : Response{
-        $mi = Menu_Item::createData($request);
-        
-        if(!$mi){
-            $results['status'] = "Menu Item failed to populate.";
-            return Helper::withJson($response, $results, 500);
-        }
-
-        $results = [
-            'status' => "Menu Item was created successfully.",
-            'data' => $mi
-        ];
-
->>>>>>> Stashed changes
         return Helper::withJson($response, $results, 200);
     }
 

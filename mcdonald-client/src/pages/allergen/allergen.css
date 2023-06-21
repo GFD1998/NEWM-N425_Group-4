@@ -1,0 +1,100 @@
+/*
+*  styles for allergen-related elements
+ */
+/* styles for list of allergens */
+.allergen-container{
+    margin: 10px auto;
+    width: 100%;
+    border: 0px solid var(--clr-primary-8);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.allergen-list {
+    display: flex;
+    flex-direction: column;
+    min-width: 250px;
+}
+
+.allergen-list a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-top: 1px solid var(--clr-grey-9);
+    border-bottom: 1px solid var(--clr-grey-9);
+    border-right: 1px dotted var(--clr-grey-9);
+    border-left: 1px dotted var(--clr-grey-9);
+    margin-bottom: -1px;
+    margin-right: 40px;
+    height: 35px;
+}
+
+.allergen-list a div {
+    display: inline-block;
+    height: 80%;
+}
+.allergen-list a.active,
+.allergen-list a:hover {
+    background-color: #e4f1fe;
+}
+
+.allergen-list a span {
+    display: inline-block;
+    width: 10px;
+    height: 100%;
+    margin-right: 5px;
+}
+
+.allergen-list a.active span {
+    background-color: gold;
+}
+
+/* styles for allergen details*/
+
+.allergen-item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.allergen-details {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    min-height: 230px;
+}
+
+.allergen-info {
+    width: 60%;
+    min-width: 260px;
+}
+
+.allergen-info div {
+    padding: 3px;
+}
+
+.allergen-name {
+    min-width: 250px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+    border-bottom: 1px dotted var(--clr-grey-8);
+}
+
+.allergen-photo {
+    width: 40%;
+    display: flex;
+    justify-content: right;
+    align-items: flex-start;
+    height: 250px;
+}
+.allergen-photo img {
+    width: 150px;
+}
+
+.allergen-classes {
+    margin-top: 40px;
+}

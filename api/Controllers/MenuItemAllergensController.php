@@ -17,24 +17,16 @@ class MenuItemAllergensController {
     public function index(Request $request, Response $response, array $args) : Response {
         $params = $request->getQueryParams();
         $term = array_key_exists('a', $params) ? $params['a'] : "";
-
-<<<<<<< Updated upstream
         $results = ($term) ? MenuItemAllergens::searchData($term) : MenuItemAllergens::getData($request);
-=======
-        $results = ($term) ? MenuItemAllergens::searchData($term) : MenuItemAllergens::getData();
->>>>>>> Stashed changes
         return Helper::withJson($response, $results, 200);
     }
     //view a specific item
     public function view(Request $request, Response $response, array $args) : Response {
         $results = MenuItemAllergens::getDataById($args['element']);
-<<<<<<< Updated upstream
         return Helper::withJson($response, $results, 200);
     }
 
-    //Create a student
     public function create(Request $request, Response $response, array $args) : Response {
-        //Create a new student
         $mi = Menu_Item::createData($request);
         if(!$mi) {
             $results['status']= "Menu item cannot been created.";
@@ -46,8 +38,6 @@ class MenuItemAllergensController {
             'data' => $mi
         ];
 
-=======
->>>>>>> Stashed changes
         return Helper::withJson($response, $results, 200);
     }
 

@@ -32,7 +32,6 @@ class MenuItemAllergens extends Model {
         return $this->hasMany(Allergens::class, 'AllergenID');
     }
 
-<<<<<<< Updated upstream
     //View all data from table.
     public static function getData($request){
         //$jsonData = self::all();
@@ -132,8 +131,6 @@ class MenuItemAllergens extends Model {
         return $sort_key_array;
     }
 
-=======
->>>>>>> Stashed changes
     //Search data
     public static function searchData($term) {
         if(is_numeric($term)){

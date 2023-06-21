@@ -39,7 +39,6 @@ class Menu_Item extends Model {
         return $this->hasMany(Allergens::class, 'AllergenID');
     }
 
-<<<<<<< Updated upstream
     //View all data from table.
     public static function getData($request){
         //$jsonData = self::all();
@@ -47,34 +46,6 @@ class Menu_Item extends Model {
         /*********** code for pagination and sorting *************************/
         //get the total number of row count
         $count = self::count();
-=======
-    //Search data
-    public static function searchData($term) {
-        if(is_numeric($term)){
-            $query = self::where('itemID', '>=', $term);
-        } else {
-            $query = self::where('name', 'like', "%$term%")
-            ->orWhere('description', 'like', "%$term%")
-            ->orWhere('price', 'like', "%$term%");
-        }
-        return $query->get();
-    }
-
-    //Create data
-    public static function createData($newRequest) {
-        $params = $newRequest->getParseBody();
-
-        $mi = new Menu_Item();
-        
-        foreach($params as $field => $value){
-            $mi->$field = $value;
-        }
-
-        $mi->save();
-
-        return $mi;
-    }
->>>>>>> Stashed changes
 
         //Get querystring variables from url
         $params = $request->getQueryParams();

@@ -1,116 +1,100 @@
-/* Styles for the list of ingredients */
+/*
+*  styles for ingredient-related elements
+ */
+/* styles for list of ingredients */
 .ingredient-container{
     margin: 10px auto;
     width: 100%;
+    border: 0px solid var(--clr-primary-8);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: flex-start;
 }
 
-.ingredient-container > div:nth-child(odd) {
-    background-color: #f8f9fa;
+.ingredient-list {
+    display: flex;
+    flex-direction: column;
+    min-width: 250px;
 }
-.ingredient-row {
-    width: 100%;
-    min-height: 35px;
-    padding: 5px;
+
+.ingredient-list a {
     display: flex;
     flex-direction: row;
     align-items: center;
-    border-bottom: 1px solid #e4f1fe;
+    border-top: 1px solid var(--clr-grey-9);
+    border-bottom: 1px solid var(--clr-grey-9);
+    border-right: 1px dotted var(--clr-grey-9);
+    border-left: 1px dotted var(--clr-grey-9);
+    margin-bottom: -1px;
+    margin-right: 40px;
+    height: 35px;
 }
 
-.ingredient-row-header {
-    font-weight: bold;
-    font-size: 14px;
-    color: #22252c;
-    background-color: #cccccc !important;
-    border-top: 2px solid #e4f1fe;
-    border-bottom: 1px solid #e4f1fe;
+.ingredient-list a div {
+    display: inline-block;
+    height: 80%;
+}
+.ingredient-list a.active,
+.ingredient-list a:hover {
+    background-color: #e4f1fe;
 }
 
-.ingredient-row div:nth-child(1) {
-    width: 15%
+.ingredient-list a span {
+    display: inline-block;
+    width: 10px;
+    height: 100%;
+    margin-right: 5px;
 }
 
-.ingredient-row div:nth-child(2) {
-    width: 45%
+.ingredient-list a.active span {
+    background-color: gold;
 }
 
-.ingredient-row div:nth-child(3) {
-    width: 15%
-}
+/* styles for ingredient details*/
 
-.ingredient-row div:nth-child(4) {
-    width: 25%
-}
-
-
-/* styles for details of a specific ingredient */
-
-.ingredient-detail-container {
+.ingredient-item {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
-.ingredient-detail-row {
-    border-top: #b7d2ff solid 0px;
-    border-bottom: #b7d2ff solid 1px;
-    margin-bottom: 0px;
+.ingredient-details {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    min-height: 230px;
 }
 
-.ingredient-detail-row div {
-    padding: 3px 10px;
+.ingredient-info {
+    width: 60%;
+    min-width: 260px;
 }
 
-.ingredient-detail-row div:nth-child(1) {
-    min-width: 120px;
-    text-align: right;
-    font-weight: bold;
-    border-right: #b7d2ff solid 1px;
+.ingredient-info div {
+    padding: 3px;
 }
 
+.ingredient-name {
+    min-width: 250px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+    border-bottom: 1px dotted var(--clr-grey-8);
+}
 
-/* styles for pagination and sorting */
-.ingredient-pagination-container {
+.ingredient-photo {
+    width: 40%;
     display: flex;
     justify-content: right;
-    margin-bottom: 50px;
+    align-items: flex-start;
+    height: 250px;
+}
+.ingredient-photo img {
+    width: 150px;
 }
 
-.ingredient-pagination select {
-    font-size: small;
-}
-
-.ingredient-pagination {
-    text-align: right;
-    font-size: 0.9em;
-    margin-right: 20px;
-}
-
-.ingredient-pagination  a {
-    font-size: smaller;
-    border-radius: 3px;
-    border: 1px solid #e4f1fe;
-    min-width: 20px;
-    padding: 1px 6px;
-    display: inline-block;
-    text-align: center;
-    margin-right: 10px;
-}
-
-.ingredient-pagination a:hover {
-    background-color: #f8f9fa;
-}
-
-.ingredient-sorting {
-    text-align: right;
-    font-size: 0.9em;
-}
-
-.ingredient-pagination select,
-.ingredient-sorting select {
-    font-size: smaller;
+.ingredient-classes {
+    margin-top: 40px;
 }
