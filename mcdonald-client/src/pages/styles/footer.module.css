@@ -1,0 +1,8 @@
+footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem 1rem;
+    font-family: 'Roboto', sans-serif;
+    background-color: #F8F8F8;
+}

@@ -11,6 +11,26 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Routing\RouteCollectorProxy;
 use Slim\Routing\RouteContext;
+use McDonaldsAPI\Authentication\{
+    MyAuthenticator,
+    BasicAuthenticator,
+    BearerAuthenticator,
+    JWTAuthenticator,
+    OAuth2Authenticator
+};
+
+//Set up CORS (Cross-Origin Resource Sharing) https://www.slimframework.com/docs/v4/cookbook/enable-cors.html
+$app->options('/{routes:.+}', function ($request, $response, $args) {
+    return $response;
+});
+
+$app->add(function ($request, $handler) {
+    $response = $handler->handle($request);
+    return $response
+        ->withHeader('Access-Control-Allow-Origin', '*')
+        ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
+        ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+});
 
 return function (App $app) {
     // move app routes here
@@ -21,11 +41,23 @@ return function (App $app) {
         return $response;
     });
 
+    
     $app->get('/hello/{name}', function (Request $request, Response $response, array $args) {
         $name = $args['name'];
         $response->getBody()->write("Hello, $name");
 
         return $response;
+    });
+
+    $app->group('/api/v1/users', function (RouteCollectorProxy $group) {
+        $group->get('', 'User:index');
+        $group->get('/oauth2','User:oauth2');
+        $group->get('/{id}', 'User:view');
+        $group->post('', 'User:create');
+        $group->put('/{id}', 'User:update');
+        $group->delete('/{id}', 'User:delete');
+        $group->post('/authBearer', 'User:authBearer');
+        $group->post('/authJWT', 'User:authJWT');
     });
 
     $app->get('/client/mcdonalds/{resource}', function (Request $request, Response $response, array $args) {
@@ -55,9 +87,23 @@ return function (App $app) {
     $app->get('/update', function (Request $request, Response $response) {
         // require("../public/pages/client.php");
         $response->getBody()->write('' . require "../public/pages/update.php");
-
         return $response;
     });
+
+    $app->get('/update/{table}/{id}', function (Request $request, Response $response, array $args) {
+
+        // $group->get('', 'MenuItem:index');
+        // $resource = $args['resource'];
+        // $response->getBody()->write("Resource: [$resource]");
+        // require("../public/pages/client.php");
+        $response->getBody()->write(`<?php
+        $table = ` . $args['table'] . `;
+        $id = ` . $args['id'] . `;
+        ?>` . require "../public/pages/update.php");
+        return $response;
+    });
+
+
 
     
     $app->get('/delete', function (Request $request, Response $response) {
@@ -77,7 +123,7 @@ return function (App $app) {
 
 
 
-    $app->group('/api/resources', function (RouteCollectorProxy $group) {
+    $app->group('/api/v1', function (RouteCollectorProxy $group) {
         
         // $group->get('', 'MenuItem:index');
         
@@ -93,6 +139,8 @@ return function (App $app) {
             $group->get('/', 'MenuItem:index');
             $group->get('/{element}', 'MenuItem:view');
             $group->post('', 'MenuItem:create');
+            $group->put('/{id}', 'MenuItem:update');
+            $group->delete('/{itemID}', 'MenuItem:delete');
         });
 
         $group->group('/allergens', function(RouteCollectorProxy $group){
@@ -131,34 +179,17 @@ return function (App $app) {
         //     // $group->get('/{id}', 'MenuItem:view');
         // });
     });
+    // })->add(new MyAuthenticator());
+    // })->add(new BasicAuthenticator());
+    // })->add(new BearerAuthenticator());
+    // })->add(new JWTAuthenticator());
+// })->add(new OAuth2Authenticator());
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-    // //Route group api/v1 pattern
-    // $app->group('/api/v1', function (RouteCollectorProxy $group) {
-    // //Route group for /menuitems pattern
-    //     $group->group('/menuitems', function (RouteCollectorProxy $group) {
-    // //Call the index method defined in the MenuItemsController class
-    // //MenuItems is the container key defined in dependencies.php.
-    //         $group->get('', 'MenuItems:index');
-    //         $group->get('/{id}', 'MenuItems:view');
-    //     });
-    // });
-    // Handle invalid routes
     $app->any('{route:.*}', function(Request $request, Response $response) {
         $response->getBody()->write("Page Not Found");
         return $response->withStatus(404);

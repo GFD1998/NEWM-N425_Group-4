@@ -18,12 +18,17 @@ class MenuItemAllergensController {
         $params = $request->getQueryParams();
         $term = array_key_exists('a', $params) ? $params['a'] : "";
 
+<<<<<<< Updated upstream
         $results = ($term) ? MenuItemAllergens::searchData($term) : MenuItemAllergens::getData($request);
+=======
+        $results = ($term) ? MenuItemAllergens::searchData($term) : MenuItemAllergens::getData();
+>>>>>>> Stashed changes
         return Helper::withJson($response, $results, 200);
     }
     //view a specific item
     public function view(Request $request, Response $response, array $args) : Response {
         $results = MenuItemAllergens::getDataById($args['element']);
+<<<<<<< Updated upstream
         return Helper::withJson($response, $results, 200);
     }
 
@@ -41,6 +46,8 @@ class MenuItemAllergensController {
             'data' => $mi
         ];
 
+=======
+>>>>>>> Stashed changes
         return Helper::withJson($response, $results, 200);
     }
 
