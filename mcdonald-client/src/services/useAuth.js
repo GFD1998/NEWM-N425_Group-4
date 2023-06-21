@@ -7,7 +7,7 @@ const AuthProvider = ({children}) => {
     const [isAuthed, setIsAuthed] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState();
     let location = useLocation();
     let navigate = useNavigate();
     let from = location.state?.from?.pathname || "/signin";
