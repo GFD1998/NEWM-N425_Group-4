@@ -1,7 +1,7 @@
 import {settings} from "../../config/config";
 import {useAuth} from "../../services/useAuth";
 import useAxios from "../../services/useAxios";
-import {NavLink} from "react-router-dom";
+import {NavLink, Outlet, useLocation} from "react-router-dom";
 import {useState} from "react";
 import "./ingredient.css";
 import Ingredient from "./ingredient";
@@ -10,6 +10,7 @@ import Pagination from "./pagination";
 const Ingredients = () => {
     const [url, setUrl] = useState(settings.baseApiUrl + "/ingredients");
     const {user} = useAuth();
+    const [subHeading, setSubHeading] = useState("All Ingredients");
     const [showIngredient, setShowIngredient] = useState(false);
     const handleIngredientClick = () => setShowIngredient(true);
 
@@ -30,14 +31,28 @@ const Ingredients = () => {
                 <div className="container">All Ingredients</div>
             </div>
             <div className="main-content container">
-                {error && <div>{error}</div>}
+                {/* {error && <div>{error}</div>} */}
                 {isLoading &&
                     <div className="image-loading">
                         Please wait while data is being loaded
                         <img src={require(`../loading.gif`)} alt="Loading ......"/>
                     </div>
-                }
-                {ingredients &&
+                }                
+                {ingredients && <div className="ingredient-container">
+                <div className="ingredient-list">
+                    {ingredients.data.map((ingredient) => (
+                        <NavLink key={ingredient.id}
+                                 className={({isActive}) => isActive ? "active" : ""}
+                                 to={`/ingredients/${ingredient.id}`}>
+                            <span>&nbsp;</span><div>{ingredient.name}</div>
+                        </NavLink>
+                    ))}
+                </div>
+                <div className="ingredient">
+                    <Outlet context={[subHeading, setSubHeading]}/>
+                </div>
+                    </div>}
+                {/*{ingredients &&
                     <div className="ingredient-container">
                         <div className="ingredient-row ingredient-row-header">
                             <div>Number</div>
@@ -61,7 +76,7 @@ const Ingredients = () => {
                             </div>
                         ))}
                     </div>}
-                {ingredients && <Pagination ingredients={ingredients} setUrl={setUrl}/>}
+                {ingredients && <Pagination ingredients={ingredients} setUrl={setUrl}/>}*/}
             </div>
         </>
     );

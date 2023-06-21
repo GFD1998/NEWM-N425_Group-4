@@ -32,18 +32,20 @@ const MenuItems = () => {
                 <div className="container">{subHeading}</div>
             </div>
             <div className="main-content container">
-                {error && <div>{error}</div>}
+                {/* {error && <div>{error}</div>} */}
                 {isLoading &&
                     <div className="image-loading">
                         Please wait while data is being loaded
                         <img src={require(`../loading.gif`)} alt="Loading ......"/>
-                    </div>}
+                </div>}
                 {menuitems && <div className="menuitem-container">
                     <div className="menuitem-list">
-                        {menuitems.map((menuitem) => (
-                            <NavLink key={menuitem.id}
+                        {console.log(menuitems.data)}
+                        {menuitems.data.map((menuitem) => (
+                            
+                            <NavLink key={menuitem.itemID}
                                      className={({isActive}) => isActive ? "active" : ""}
-                                     to={`/menuitems/${menuitem.id}`}>
+                                     to={`/menuitems/${menuitem.itemID}`}>
                                 <span>&nbsp;</span><div>{menuitem.name}</div>
                             </NavLink>
                         ))}
@@ -51,7 +53,7 @@ const MenuItems = () => {
                     <div className="menuitem">
                         <Outlet context={[subHeading, setSubHeading]}/>
                     </div>
-                </div>}
+                        </div>}
             </div>
         </>
     );
