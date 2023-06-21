@@ -4,12 +4,16 @@ import Home from "../pages/home";
 import NoMatch from "../pages/nomatch";
 import MenuItem from "../pages/menuitem/menuitem";
 import MenuItems from "../pages/menuitem/menuitems";
+import CreateMenuItem from "../pages/menuitem/createMenuItem";
+import UpdateMenuItem from "../pages/menuitem/updateMenuItem";
+import DeleteMenuItem from "../pages/menuitem/deleteMenuItem";
 import Allergen from "../pages/allergen/allergen";
 import Allergens from "../pages/allergen/allergens";
 import Ingredient from "../pages/ingredient/ingredient";
 import Ingredients from "../pages/ingredient/ingredients";
 import NutritionalInformation from "../pages/nutritionalInformation/nutritionalinformation";
 import NutritionalInformations from "../pages/nutritionalInformation/nutritionalinformations";
+
 import {AuthProvider} from "../services/useAuth";
 import RequireAuth from "../components/RequireAuth";
 import Signin from "../pages/auth/signin";
@@ -29,6 +33,12 @@ const AppRoutes = () => {
                             </RequireAuth>
                         }>
                             <Route path=":menuitemID" element={<MenuItem/>}>
+                                <Route path="update" element={<CreateMenuItem/>}>
+                                </Route>
+                                <Route path="delete" element={<CreateMenuItem/>}>
+                                </Route>
+                            </Route>
+                            <Route path="create" element={<CreateMenuItem/>}>
                             </Route>
                         </Route>
 
