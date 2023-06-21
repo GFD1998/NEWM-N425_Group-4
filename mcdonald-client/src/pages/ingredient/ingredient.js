@@ -1,37 +1,64 @@
 import {settings} from "../../config/config";
-import {NavLink, Outlet, useLocation} from "react-router-dom";
-import {useState, useEffect} from "react";
-import useXmlHttp from "../../services/useXmlHttp";
 import {useAuth} from "../../services/useAuth";
-import MenuStyles from "../styles/menu.module.css";
-const Ingredient = () => {
-    const {user} = useAuth();
-    const {pathname} = useLocation();
-    const [subHeading, setSubHeading] = useState("All Ingredients");
-    const url = settings.baseApiUrl + "/ingredient";
+import useAxios from "../../services/useAxios";
+import {useParams, useNavigate} from "react-router-dom";
+import {Modal, Button} from 'react-bootstrap';
+import "./ingredient.css";
 
+const Ingredient = ({show, setShow}) => {
+    const {ingredientNum} = useParams();
+    const url = settings.baseApiUrl + "/ingredients/" + ingredientNum;
+    const {user} = useAuth();
+    const navigate = useNavigate();
+    const handleClose = () => {setShow(false); navigate("/ingredients")};
+
+    //fetch ingredient data using the useAxios hook
     const {
         error,
         isLoading,
         data: ingredient
-    } = useXmlHttp(url, "GET", {Authorization:`Bearer ${user.jwt}`});
+    } = useAxios(url, "GET", {Authorization: "Bearer " + user.jwt});
 
-    useEffect(() => {
-        setSubHeading("All Ingredients");
-    }, [pathname]);
     return (
-       <>
-           <div className="main-heading">
-               <div className="container">Ingredients</div>
-           </div>
-           <div className="sub-heading">
-               <div className="container">Welcome to the Ingredients Dashboard</div>
-           </div>
-           <div className="main-content container">
-                
-           </div>
-       </>
-   );
+        <>
+            <Modal show={show} onHide={handleClose} centered size="lg">
+                <Modal.Header closeButton>
+                    <h4>{ingredient && ingredient.title}</h4>
+                </Modal.Header>
+                <Modal.Body>
+                    {error && <div>{error}</div>}
+                    {isLoading &&
+                        <div className="image-loading">
+                            Please wait while data is being loaded
+                            <img src={require(`../loading.gif`)} alt="Loading ......"/>
+                        </div>
+                    }
+                    {ingredient &&
+                        <div className="ingredient-detail-container">
+                            <div className="ingredient-detail-row">
+                                <div>Number</div><div>{ingredient.number}</div>
+                            </div>
+                            <div className="ingredient-detail-row">
+                                <div>Title</div><div>{ingredient.title}</div>
+                            </div>
+                            <div className="ingredient-detail-row">
+                                <div>Credit Hours</div><div>{ingredient.credit_hours}</div>
+                            </div>
+                            <div className="ingredient-detail-row">
+                                <div>Prerequisites</div><div>{ingredient.prerequisites}</div>
+                            </div>
+                            <div className="ingredient-detail-row">
+                                <div>Description</div><div>{ingredient.description}</div>
+                            </div>
+                        </div>
+                    }
+                </Modal.Body>
+                <Modal.Footer style={{borderTop: "none"}}>
+                    <Button variant="secondary" onClick={handleClose}>Close</Button>
+                </Modal.Footer>
+            </Modal>
+        </>
+    );
 };
 
 export default Ingredient;
