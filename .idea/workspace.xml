@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4a254ced-f2a6-4cb1-8c93-19e49568cb83" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerConfigs">
+    <option name="configs">
+      <option value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/composer.json" />
+      <option value="/Applications/MAMP/htdocs/I425/mycollege-api/composer.json" />
+    </option>
+  </component>
+  <component name="ComposerSettings" notifyAboutMissingVendor="false" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution>
+      <executable path="composer" />
+    </execution>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="MAMP PHP 7.4.21">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/vendor/slim/slim" />
+      <path value="$PROJECT_DIR$/vendor/slim/psr7" />
+      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/vendor/nikic/fast-route" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/fig/http-message-util" />
+      <path value="$PROJECT_DIR$/vendor/php-di/invoker" />
+      <path value="$PROJECT_DIR$/vendor/php-di/phpdoc-reader" />
+      <path value="$PROJECT_DIR$/vendor/php-di/php-di" />
+      <path value="$PROJECT_DIR$/vendor/laravel/serializable-closure" />
+      <path value="$PROJECT_DIR$/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/nesbot/carbon" />
+      <path value="$PROJECT_DIR$/vendor/voku/portable-ascii" />
+      <path value="$PROJECT_DIR$/vendor/brick/math" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/vendor/illuminate/database" />
+      <path value="$PROJECT_DIR$/vendor/illuminate/contracts" />
+      <path value="$PROJECT_DIR$/vendor/illuminate/container" />
+      <path value="$PROJECT_DIR$/vendor/illuminate/conditionable" />
+      <path value="$PROJECT_DIR$/vendor/illuminate/support" />
+      <path value="$PROJECT_DIR$/vendor/illuminate/macroable" />
+      <path value="$PROJECT_DIR$/vendor/illuminate/collections" />
+      <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/nikic/fast-route" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/laravel/serializable-closure" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/slim/slim" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/slim/psr7" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/fig/http-message-util" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/psr/simple-cache" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/psr/http-message" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/symfony/deprecation-contracts" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/psr/http-factory" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/voku/portable-ascii" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/symfony/polyfill-mbstring" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/psr/container" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/php-di/php-di" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/symfony/console" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/ralouphie/getallheaders" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/php-di/phpdoc-reader" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/symfony/translation-contracts" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/php-di/invoker" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/pimple/pimple" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/symfony/polyfill-ctype" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/symfony/service-contracts" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/symfony/string" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/symfony/translation" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/doctrine/inflector" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/illuminate/database" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/illuminate/collections" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/symfony/polyfill-php80" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/illuminate/macroable" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/illuminate/container" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/brick/math" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/illuminate/support" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/illuminate/contracts" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/illuminate/conditionable" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/nesbot/carbon" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/composer" />
+      <path value="/Applications/MAMP/htdocs/I425/mycollege-api/vendor/psr/simple-cache" />
+      <path value="/Applications/MAMP/htdocs/I425/mycollege-api/vendor/psr/http-server-handler" />
+      <path value="/Applications/MAMP/htdocs/I425/mycollege-api/vendor/psr/http-factory" />
+      <path value="/Applications/MAMP/htdocs/I425/mycollege-api/vendor/brick/math" />
+      <path value="/Applications/MAMP/htdocs/I425/mycollege-api/vendor/symfony/deprecation-contracts" />
+      <path value="/Applications/MAMP/htdocs/I425/mycollege-api/vendor/psr/container" />
+      <path value="/Applications/MAMP/htdocs/I425/mycollege-api/vendor/symfony/polyfill-mbstring" />
+      <path value="/Applications/MAMP/htdocs/I425/mycollege-api/vendor/ralouphie/getallheaders" />
+      <path value="/Applications/MAMP/htdocs/I425/mycollege-api/vendor/psr/http-message" />
+      <path value="/Applications/MAMP/htdocs/I425/mycollege-api/vendor/symfony/console" />
+      <path value="/Applications/MAMP/htdocs/I425/mycollege-api/vendor/psr/http-server-middleware" />
+      <path value="/Applications/MAMP/htdocs/I425/mycollege-api/vendor/symfony/translation-contracts" />
+      <path value="/Applications/MAMP/htdocs/I425/mycollege-api/vendor/psr/log" />
+      <path value="/Applications/MAMP/htdocs/I425/mycollege-api/vendor/slim/slim" />
+      <path value="/Applications/MAMP/htdocs/I425/mycollege-api/vendor/symfony/polyfill-ctype" />
+      <path value="/Applications/MAMP/htdocs/I425/mycollege-api/vendor/slim/psr7" />
+      <path value="/Applications/MAMP/htdocs/I425/mycollege-api/vendor/symfony/service-contracts" />
+      <path value="/Applications/MAMP/htdocs/I425/mycollege-api/vendor/symfony/string" />
+      <path value="/Applications/MAMP/htdocs/I425/mycollege-api/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="/Applications/MAMP/htdocs/I425/mycollege-api/vendor/doctrine/inflector" />
+      <path value="/Applications/MAMP/htdocs/I425/mycollege-api/vendor/illuminate/database" />
+      <path value="/Applications/MAMP/htdocs/I425/mycollege-api/vendor/symfony/translation" />
+      <path value="/Applications/MAMP/htdocs/I425/mycollege-api/vendor/illuminate/collections" />
+      <path value="/Applications/MAMP/htdocs/I425/mycollege-api/vendor/nesbot/carbon" />
+      <path value="/Applications/MAMP/htdocs/I425/mycollege-api/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="/Applications/MAMP/htdocs/I425/mycollege-api/vendor/illuminate/macroable" />
+      <path value="/Applications/MAMP/htdocs/I425/mycollege-api/vendor/symfony/polyfill-php80" />
+      <path value="/Applications/MAMP/htdocs/I425/mycollege-api/vendor/illuminate/container" />
+      <path value="/Applications/MAMP/htdocs/I425/mycollege-api/vendor/illuminate/support" />
+      <path value="/Applications/MAMP/htdocs/I425/mycollege-api/vendor/illuminate/contracts" />
+      <path value="/Applications/MAMP/htdocs/I425/mycollege-api/vendor/illuminate/conditionable" />
+      <path value="/Applications/MAMP/htdocs/I425/mycollege-api/vendor/nikic/fast-route" />
+      <path value="/Applications/MAMP/htdocs/I425/mycollege-api/vendor/laravel/serializable-closure" />
+      <path value="/Applications/MAMP/htdocs/I425/mycollege-api/vendor/composer" />
+      <path value="/Applications/MAMP/htdocs/I425/mycollege-api/vendor/fig/http-message-util" />
+      <path value="/Applications/MAMP/htdocs/I425/mycollege-api/vendor/voku/portable-ascii" />
+      <path value="/Applications/MAMP/htdocs/I425/mycollege-api/vendor/php-di/php-di" />
+      <path value="/Applications/MAMP/htdocs/I425/mycollege-api/vendor/php-di/invoker" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-server-middleware" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-server-handler" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/psr/log" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/psr/http-server-middleware" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/psr/http-server-handler" />
+      <path value="$PROJECT_DIR$/vendor/respect/stringifier" />
+      <path value="$PROJECT_DIR$/vendor/respect/validation" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/respect/validation" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/respect/stringifier" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="2QFyLHZSEsUUB90k5aBcSHcbmYB" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Notification.DisplayName-DoNotAsk-Vcs Important Messages": "VCS important messages",
+    "Notification.DoNotAsk-Vcs Important Messages": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "web-ide.project.structure",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mariadb"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/" />
+      <recent name="$PROJECT_DIR$/api" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4a254ced-f2a6-4cb1-8c93-19e49568cb83" name="Changes" comment="" />
+      <created>1684963567438</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1684963567438</updated>
+      <workItem from="1684963570468" duration="9897000" />
+      <workItem from="1684980216422" duration="871000" />
+      <workItem from="1684981343543" duration="4637000" />
+      <workItem from="1684986415330" duration="474000" />
+      <workItem from="1685043668618" duration="8285000" />
+      <workItem from="1685138577373" duration="1637000" />
+      <workItem from="1685405501618" duration="619000" />
+      <workItem from="1685407905887" duration="624000" />
+      <workItem from="1685463421891" duration="940000" />
+      <workItem from="1685464680091" duration="1060000" />
+      <workItem from="1685470794512" duration="4298000" />
+      <workItem from="1685498710055" duration="469000" />
+      <workItem from="1685562220432" duration="373000" />
+      <workItem from="1685566625004" duration="2899000" />
+      <workItem from="1685572776385" duration="485000" />
+      <workItem from="1685573641424" duration="602000" />
+      <workItem from="1686177966717" duration="15000" />
+      <workItem from="1686671980621" duration="39000" />
+      <workItem from="1686785977584" duration="51000" />
+      <workItem from="1686786894429" duration="1349000" />
+      <workItem from="1687314007734" duration="22000" />
+      <workItem from="1687314094814" duration="103000" />
+      <workItem from="1687382611419" duration="396000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
