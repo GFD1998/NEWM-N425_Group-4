@@ -98,3 +98,163 @@
 .menuitem-classes {
     margin-top: 40px;
 }
+
+
+
+/*
+*  styles for menuitem-related elements
+ */
+ .menuitem-container{
+    margin: 10px auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.menuitem-container > div:nth-child(odd) {
+    background-color: #f8f9fa;
+}
+.menuitem-row {
+    width: 100%;
+    min-height: 35px;
+    padding-left: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 1px solid #e4f1fe;
+}
+
+.menuitem-row-header {
+    font-weight: bold;
+    font-size: 14px;
+    color: #22252c;
+    background-color: #cccccc !important;
+    border-top: 1px solid #e4f1fe;
+}
+
+.menuitem-row .menuitem-info {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.menuitem-info div {
+    margin-right: 2px;
+}
+
+.menuitem-id {
+    width: 10%;
+}
+
+.menuitem-name {
+    width: 20%;
+}
+
+.menuitem-email {
+    width: 20%;
+}
+
+.menuitem-major {
+    width: 40%;
+}
+
+.menuitem-gpa {
+    width: 10%;
+}
+
+/* styles for the add menuitem row */
+.menuitem-row input {
+    border: 1px solid #cccccc;
+    width: 100%;
+    padding: 0px 5px;
+}
+
+
+/* styles for edit and delete buttons */
+
+.menuitem-row .menuitem-buttons {
+    min-width: 190px;
+    text-align: right;
+}
+
+button.button-light {
+    margin: 0px 2px;
+    width: 75px;
+    border: #4D90C6 solid 1px;
+    border-radius: 0.25rem;
+}
+
+button.button-create {
+    margin: 0px 2px;
+    padding: 2px 10px;
+    border: #4D90C6 solid 1px;
+    border-radius: 0.25rem;
+}
+
+button.button-light:hover,
+button.button-create:hover
+{
+    color: #212529;
+    background-color: #e2e6ea;
+    border-color: #dae0e5;
+}
+
+button:disabled,
+button[disabled],
+button:disabled:hover {
+    border-color: #cccccc;
+    background-color: rgba(239, 239, 239, 0.3);
+    color: rgba(16, 16, 16, 0.3)
+}
+
+
+/* styles for the create and edit menuitem forms */
+.form-menuitem .form-group {
+    display: flex;
+    padding: 10px 5px;
+}
+
+.form-menuitem .form-group label {
+    width: 100px;
+    margin-top: 6px;
+    margin-right: 10px;
+    text-align: right;
+    font-weight: 500;
+}
+
+.form-menuitem .form-group input {
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}
+
+.form-menuitem-errors {
+    font-size: small;
+    color: red;
+}
+
+.crud-menu{
+    display: flex;
+    flex-direction: row;
+}
+
+.crud-form{
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    margin: 1rem;
+    align-items: center;
+    background-color: grey;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.crud-form input{
+    margin: 1rem;
+}
+
+.crud-form-title{
+    text-align: center;
+}

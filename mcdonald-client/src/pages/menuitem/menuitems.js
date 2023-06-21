@@ -1,5 +1,5 @@
 import {settings} from "../../config/config";
-import {NavLink, Outlet, useLocation} from "react-router-dom";
+import {Link, NavLink, Outlet, useLocation} from "react-router-dom";
 import {useState, useEffect} from "react";
 import "../styles/menu.module.css";
 import './menuitem.css';
@@ -30,6 +30,9 @@ const MenuItems = () => {
             <div className="sub-heading">
                 <div className="container">{subHeading}</div>
             </div>
+            <div className="crud-menu">
+                <Link to={`create`}>CREATE</Link>
+            </div>
             <div className="main-content container">
                 {/* {error && <div>{error}</div>} */}
                 {isLoading &&
@@ -52,7 +55,7 @@ const MenuItems = () => {
                     <div className="menuitem">
                         <Outlet context={[subHeading, setSubHeading]}/>
                     </div>
-                        </div>}
+                </div>}
             </div>
         </>
     );
