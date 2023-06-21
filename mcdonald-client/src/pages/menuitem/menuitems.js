@@ -5,7 +5,6 @@ import "../styles/menu.module.css";
 import './menuitem.css';
 import useXmlHttp from "../../services/useXmlHttp";
 import {useAuth} from "../../services/useAuth";
-import MenuStyles from "../styles/menu.module.css";
 
 const MenuItems = () => {
     const {user} = useAuth();

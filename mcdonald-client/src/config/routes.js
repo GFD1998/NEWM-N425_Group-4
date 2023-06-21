@@ -26,8 +26,18 @@ const AppRoutes = () => {
                                 <MenuItems/>
                             </RequireAuth>
                         }>
-                            <Route index element={<p>Select a professor to view details.</p>}/>
+                            {/* <Route index element={<p>Select a professor to view details.</p>}/> */}
                             <Route path=":menuitemID" element={<MenuItem/>}>
+                                <Route path="ingredients" element={<Ingredients />}/>
+                            </Route>
+                        </Route>
+                        <Route path="ingredients" element={
+                            <RequireAuth>
+                                <Ingredients/>
+                            </RequireAuth>
+                        }>
+                            {/* <Route index element={<p>Select a professor to view details.</p>}/> */}
+                            <Route path=":ingredientID" element={<Ingredient/>}>
                                 <Route path="ingredients" element={<Ingredients />}/>
                             </Route>
                         </Route>

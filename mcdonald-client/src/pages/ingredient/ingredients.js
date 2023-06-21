@@ -1,34 +1,35 @@
 import {settings} from "../../config/config";
-import {useAuth} from "../../services/useAuth";
-import useAxios from "../../services/useAxios";
 import {NavLink, Outlet, useLocation} from "react-router-dom";
-import {useState} from "react";
-import "./ingredient.css";
-import Ingredient from "./ingredient";
-import Pagination from "./pagination";
+import {useState, useEffect} from "react";
+import "../styles/menu.module.css";
+import './ingredient.css';
+import useXmlHttp from "../../services/useXmlHttp";
+import {useAuth} from "../../services/useAuth";
 
 const Ingredients = () => {
-    const [url, setUrl] = useState(settings.baseApiUrl + "/ingredients");
     const {user} = useAuth();
+    const {pathname} = useLocation();
     const [subHeading, setSubHeading] = useState("All Ingredients");
-    const [showIngredient, setShowIngredient] = useState(false);
-    const handleIngredientClick = () => setShowIngredient(true);
+    const url = settings.baseApiUrl + "/ingredients";
+    console.log(url);
 
-    //declare the data fetching function
     const {
         error,
         isLoading,
         data: ingredients
-    } = useAxios(url, "GET", {Authorization: "Bearer " + user.jwt});
+    } = useXmlHttp(url, "GET", {Authorization:`Bearer ${user.jwt}`});
+
+    useEffect(() => {
+        setSubHeading("All Ingredients");
+    }, [pathname]);
 
     return (
         <>
-            {showIngredient && <Ingredient show={showIngredient} setShow={setShowIngredient}/>}
             <div className="main-heading">
-                <div className="container">Ingredient</div>
+                <div className="container">Ingredients</div>
             </div>
             <div className="sub-heading">
-                <div className="container">All Ingredients</div>
+                <div className="container">{subHeading}</div>
             </div>
             <div className="main-content container">
                 {/* {error && <div>{error}</div>} */}
@@ -36,47 +37,23 @@ const Ingredients = () => {
                     <div className="image-loading">
                         Please wait while data is being loaded
                         <img src={require(`../loading.gif`)} alt="Loading ......"/>
-                    </div>
-                }                
+                </div>}
                 {ingredients && <div className="ingredient-container">
-                <div className="ingredient-list">
-                    {ingredients.data.map((ingredient) => (
-                        <NavLink key={ingredient.id}
-                                 className={({isActive}) => isActive ? "active" : ""}
-                                 to={`/ingredients/${ingredient.id}`}>
-                            <span>&nbsp;</span><div>{ingredient.name}</div>
-                        </NavLink>
-                    ))}
-                </div>
-                <div className="ingredient">
-                    <Outlet context={[subHeading, setSubHeading]}/>
-                </div>
-                    </div>}
-                {/*{ingredients &&
-                    <div className="ingredient-container">
-                        <div className="ingredient-row ingredient-row-header">
-                            <div>Number</div>
-                            <div>Title</div>
-                            <div>Credit Hours</div>
-                            <div>Prerequisites</div>
-                        </div>
-                        {ingredients.data && ingredients.data.map((ingredient) => (
-                            <div key={ingredient.number} className="ingredient-row">
-                                <div>
-                                    <NavLink
-                                        className={({isActive}) => isActive ? "active" : ""}
-                                        to={`/ingredients/${ingredient.number}`}
-                                        onClick={handleIngredientClick}>
-                                        {ingredient.number}
-                                    </NavLink>
-                                </div>
-                                <div>{ingredient.title}</div>
-                                <div>{ingredient.credit_hours}</div>
-                                <div>{ingredient.prerequisites}</div>
-                            </div>
+                    <div className="ingredient-list">
+                    {console.log(ingredients.data)}
+                        {ingredients.data.map((ingredient) => (
+                            
+                            <NavLink key={ingredient.ingredientID}
+                                     className={({isActive}) => isActive ? "active" : ""}
+                                     to={`/ingredients/${ingredient.ingredientID}`}>
+                                <span>&nbsp;</span><div>{ingredient.name}</div>
+                            </NavLink>
                         ))}
-                    </div>}
-                {ingredients && <Pagination ingredients={ingredients} setUrl={setUrl}/>}*/}
+                    </div>
+                    <div className="ingredient">
+                        <Outlet context={[subHeading, setSubHeading]}/>
+                    </div>
+                        </div>}
             </div>
         </>
     );
