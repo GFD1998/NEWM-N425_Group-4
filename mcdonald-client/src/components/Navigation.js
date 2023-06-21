@@ -3,7 +3,6 @@ import NavStyles from '../pages/styles/nav.module.css';
 import Signin from "../pages/auth/signin";
 import Signout from "../pages/auth/signout";
 import Signup from "../pages/auth/signup";
-
 import {settings} from "../config/config";
 import useXmlHttp from '../services/useXmlHttp';
 import {useParams} from "react-router-dom";
@@ -11,8 +10,7 @@ import {useParams} from "react-router-dom";
 import {useAuth} from "../services/useAuth";
 
 const Navigation = () => {
-
-  
+  const {isAuthed, user} = useAuth();
   return (
     <>
       <nav>
