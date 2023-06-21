@@ -34,13 +34,7 @@ const Ingredient = () => {
                         <div><strong>Item Name</strong>: {ingredient.name}</div>
                         <div><strong>Description</strong>: {ingredient.description}</div>
                         <div><strong>Price</strong>: {ingredient.price}</div>
-                        {/* <div><strong>Ingredients</strong>:
-                            <Link to={`Ingredientingredients/${Ingredient.itemID}`}> Click here to view ingredients</Link>
-                        </div> */}
                     </div>
-                    {/* <div className="Ingredient-photo">
-                        <img src={Ingredient.image} alt={Ingredient.name} id={Ingredient.itemID}/>
-                    </div> */}
                 </div>
                 <div className="ingredient-classes">
                     <Outlet/>

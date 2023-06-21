@@ -18,9 +18,9 @@ const Navigation = () => {
       <nav>
             <NavLink to="/" className={NavStyles.navLinks}>HOME</NavLink>
             <NavLink to="/menuitems" className={NavStyles.navLinks}>MENU ITEMS</NavLink>
-            <NavLink to="/allergen" className={NavStyles.navLinks}>ALLERGENS</NavLink>
+            <NavLink to="/allergens" className={NavStyles.navLinks}>ALLERGENS</NavLink>
             <NavLink to="/ingredients" className={NavStyles.navLinks}>INGREDIENTS</NavLink>
-            <NavLink to="/nutritionalinformation" className={NavStyles.navLinks}>NUTRITIONAL INFORMATION</NavLink>
+            <NavLink to="/nutritionalinformations" className={NavStyles.navLinks}>NUTRITIONAL INFORMATION</NavLink>
               {useAuth.isAuthed
                   ? <NavLink to="/signout"className={NavStyles.navLinks}>SIGN OUT</NavLink>
                   : <NavLink to="/signin"className={NavStyles.navLinks}>SIGN IN</NavLink>

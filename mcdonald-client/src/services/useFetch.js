@@ -7,7 +7,7 @@ const UseFetch = () => {
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const {user} = useAuth();
-    const baseURI = settings.baseApiUrl + '/students';
+    const baseURI = settings.baseApiUrl + '/menuitems';
     const abortCont = new AbortController();
     const signal = abortCont.signal;
     const handleResponse = (promise) => {
