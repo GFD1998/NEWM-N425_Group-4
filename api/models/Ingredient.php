@@ -141,4 +141,15 @@ class Ingredient extends Model {
         return $query->get();
     }
 
+    //Search data
+    public static function searchData($term) {
+        if(is_numeric($term)){
+            $query = self::where('IngredientID', '>=', $term);
+        } else {
+            $query = self::where('name', 'like', "%$term%")
+            ->orWhere('description', 'like', "%$term%");
+        }
+        return $query->get();
+    }
+
 }

@@ -17,7 +17,11 @@ class IngredientController {
         $params = $request->getQueryParams();
         $term = array_key_exists('a', $params) ? $params['a'] : "";
 
+<<<<<<< Updated upstream
         $results = ($term) ? Ingredient::searchData($term) : Ingredient::getData($request);
+=======
+        $results = ($term) ? Ingredient::searchData($term) : Ingredient::getData();
+>>>>>>> Stashed changes
         return Helper::withJson($response, $results, 200);
     }
     //view a specific item

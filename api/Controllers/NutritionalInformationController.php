@@ -17,7 +17,11 @@ class NutritionalInformationController {
         $params = $request->getQueryParams();
         $term = array_key_exists('a', $params) ? $params['a'] : "";
 
+<<<<<<< Updated upstream
         $results = ($term) ? NutritionalInformation::searchData($term) : NutritionalInformation::getData($request);
+=======
+        $results = ($term) ? NutritionalInformation::searchData($term) : NutritionalInformation::getData();
+>>>>>>> Stashed changes
         return Helper::withJson($response, $results, 200);
     }
     //view a specific item

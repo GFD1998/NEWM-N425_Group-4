@@ -14,10 +14,19 @@ use McDonaldsAPI\Controllers\ControllerHelper as Helper;
 class AllergensController {
     //list all items
     public function index(Request $request, Response $response, array $args) : Response {
+<<<<<<< Updated upstream
         $params = $request->getQueryParams();
         $term = array_key_exists('a', $params) ? $params['a'] : "";
 
         $results = ($term) ? Allergens::searchData($term) : Allergens::getData($request);
+=======
+
+        $params = $request->getQueryParams();
+        $term = array_key_exists('a', $params) ? $params['a'] : "";
+
+        $results = ($term) ? Allergens::searchData($term) : Allergens::getData();
+
+>>>>>>> Stashed changes
         return Helper::withJson($response, $results, 200);
     }
     //view a specific item

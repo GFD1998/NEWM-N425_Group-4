@@ -139,8 +139,11 @@ return function (App $app) {
             $group->get('/', 'MenuItem:index');
             $group->get('/{element}', 'MenuItem:view');
             $group->post('', 'MenuItem:create');
+<<<<<<< Updated upstream
             $group->put('/{id}', 'MenuItem:update');
             $group->delete('/{itemID}', 'MenuItem:delete');
+=======
+>>>>>>> Stashed changes
         });
 
         $group->group('/allergens', function(RouteCollectorProxy $group){
