@@ -58,6 +58,7 @@ const AuthProvider = ({children}) => {
     // User Signup
     const signup = (account) => {
         const url = settings.baseApiUrl + "/users";
+        console.log(url);
         fetch(url, {
             method: "POST",
             headers: {
