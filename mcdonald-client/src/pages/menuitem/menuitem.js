@@ -1,57 +1,53 @@
 import {settings} from "../../config/config";
-import {NavLink, Outlet, useLocation} from "react-router-dom";
-import {useState, useEffect} from "react";
-import useXmlHttp from "../../services/useXmlHttp";
+import useXmlHttp from '../../services/useXmlHttp';
+import {useParams, Link, Outlet, useOutletContext} from "react-router-dom";
+import './menuitem.css';
 import {useAuth} from "../../services/useAuth";
-import MenuStyles from "../styles/menu.module.css";
 
 const MenuItem = () => {
     const {user} = useAuth();
-    const {pathname} = useLocation();
-    const [subHeading, setSubHeading] = useState("All Menu Items");
-    const url = settings.baseApiUrl + "/menuitem";
+    const [subHeading, setSubHeading] = useOutletContext();
+    const {menuitemId} = useParams();
+    const url = settings.baseApiUrl + "/menuitems/" + menuitemId;
     const {
         error,
         isLoading,
         data: menuitem
     } = useXmlHttp(url, "GET", {Authorization:`Bearer ${user.jwt}`});
 
-    useEffect(() => {
-        setSubHeading("All Menu Items");
-    }, [pathname]);
-    async function menuitems(){
-        const mi = await fetch("http://localhost/projects/NEWM-N425_Group-4/api/v1/menuitems").then(res => res.json()).then(json => console.log(JSON.stringify(json)));
-        // console.log(mi);
-        return mi;
-    }
-    const muJson = menuitems();
-    console.log(muJson["totalCount"]);
     return (
-       <>
-           <div className="main-heading">
-               <div className="container">Menu Item</div>
-           </div>
-           <div className="sub-heading">
-               <div className="container">Welcome to the McDonald's Dashboard</div>
-           </div>
-           <div className={MenuStyles.menuContainer}>
-                <ul className={MenuStyles.menuList}>
-                    <li className={MenuStyles.menuItem}>
-                        <div className={MenuStyles.menuInput}>
-                            <input type="text" placeholder="Choose element to delete..."/>
-                            <select class="form-select" aria-label="Default select example">
-
-                                <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
+        <>
+            {error && <div>{error}</div>}
+            {isLoading &&
+                <div className="image-loading">
+                    Please wait while data is being loaded
+                    <img src={require(`../loading.gif`)} alt="Loading ......"/>
+                </div>}
+            {menuitem && <>
+                {setSubHeading(menuitem.name)}
+                <div className="menuitem-details">
+                    {/* <div className="menuitem-name">{menuitem.name}</div>*/}
+                    <div className="menuitem-info">
+                        <div><strong>Department</strong>: {menuitem.department}</div>
+                        <div><strong>Program</strong>: {menuitem.program}</div>
+                        <div><strong>Email</strong>: {menuitem.email}</div>
+                        <div><strong>Phone</strong>: {menuitem.phone}</div>
+                        <div><strong>Office</strong>: {menuitem.office}</div>
+                        <div><strong>Profile</strong>:<a href={menuitem.url} target="_blank"> Click here to view profile</a></div>
+                        <div><strong>Classes</strong>:
+                            <Link to={`/menuitems/${menuitem.id}/classes`}> Click here to view classes</Link>
                         </div>
-                    </li>
-                </ul>
-           </div>
-       </>
-   );
+                    </div>
+                    <div className="menuitem-photo">
+                        <img src={menuitem.image} alt={menuitem.name} id={menuitem.id}/>
+                    </div>
+                </div>
+                <div className="menuitem-classes">
+                    <Outlet/>
+                </div>
+            </>}
+        </>
+    );
 };
 
 export default MenuItem;
