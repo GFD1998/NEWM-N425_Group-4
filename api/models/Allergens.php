@@ -21,12 +21,6 @@ class Allergens extends Model {
     public $description;
 
 
-<<<<<<< Updated upstream
-=======
-    }
-
-
->>>>>>> Stashed changes
     public static function getDataById(string $ID) {
         $allergensitem = self::findOrFail($ID);
         return $allergensitem;
@@ -38,7 +32,6 @@ class Allergens extends Model {
         return $this->hasMany(MenuItemAllergens::class, 'menuitemallergensID');
     }
 
-<<<<<<< Updated upstream
     //View all data from table.
     public static function getData($request){
         //$jsonData = self::all();
@@ -138,8 +131,6 @@ class Allergens extends Model {
         return $sort_key_array;
     }
 
-=======
->>>>>>> Stashed changes
     //Search data
     public static function searchData($term) {
         if(is_numeric($term)){
@@ -150,8 +141,4 @@ class Allergens extends Model {
         }
         return $query->get();
     }
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 }

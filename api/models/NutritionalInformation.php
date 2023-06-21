@@ -55,7 +55,6 @@ class NutritionalInformation extends Model {
         return $this->hasMany(Menu_Item::class, 'itemID');
     }
 
-<<<<<<< Updated upstream
     //View all data from table.
     public static function getData($request){
         //$jsonData = self::all();
@@ -155,8 +154,6 @@ class NutritionalInformation extends Model {
         return $sort_key_array;
     }
 
-=======
->>>>>>> Stashed changes
     //Search data
     public static function searchData($term) {
         if(is_numeric($term)){

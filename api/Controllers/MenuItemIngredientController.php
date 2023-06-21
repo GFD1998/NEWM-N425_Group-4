@@ -18,11 +18,7 @@ class MenuItemIngredientController {
         $params = $request->getQueryParams();
         $term = array_key_exists('a', $params) ? $params['a'] : "";
 
-<<<<<<< Updated upstream
         $results = ($term) ? MenuItemIngredient::searchData($term) : MenuItemIngredient::getData($request);
-=======
-        $results = ($term) ? MenuItemIngredient::searchData($term) : MenuItemIngredient::getData();
->>>>>>> Stashed changes
         return Helper::withJson($response, $results, 200);
     }
     //view a specific item
