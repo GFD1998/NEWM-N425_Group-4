@@ -29,7 +29,7 @@ const Allergen = () => {
                <div className="container">Welcome to the Allergens Dashboard</div>
            </div>
            <div className="main-content container">
-                
+
            </div>
        </>
    );
