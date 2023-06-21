@@ -17,14 +17,13 @@ const Navigation = () => {
     <>
       <nav>
             <NavLink to="/" className={NavStyles.navLinks}>HOME</NavLink>
-            <NavLink to="/menuitem" className={NavStyles.navLinks}>MENU ITEM</NavLink>
+            <NavLink to="/menuitems" className={NavStyles.navLinks}>MENU ITEMS</NavLink>
             <NavLink to="/allergen" className={NavStyles.navLinks}>ALLERGENS</NavLink>
-            <NavLink to="/ingredient" className={NavStyles.navLinks}>INGREDIENTS</NavLink>
+            <NavLink to="/ingredients" className={NavStyles.navLinks}>INGREDIENTS</NavLink>
             <NavLink to="/nutritionalinformation" className={NavStyles.navLinks}>NUTRITIONAL INFORMATION</NavLink>
-            <div className="nav-separator">|</div>
               {useAuth.isAuthed
-                  ? <NavLink to="/signout">Sign out</NavLink>
-                  : <NavLink to="/signin">Sign in/Sign up</NavLink>
+                  ? <NavLink to="/signout"className={NavStyles.navLinks}>SIGN OUT</NavLink>
+                  : <NavLink to="/signin"className={NavStyles.navLinks}>SIGN IN</NavLink>
               }
       </nav>
     </>
