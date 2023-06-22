@@ -4,13 +4,11 @@
         "slim/psr7": "^1.6",
         "php-di/php-di": "^6.4",
         "illuminate/database": "9.*",
-        "respect/validation": "2.2",
-        "firebase/php-jwt": "~5.0",
-        "google/apiclient": "2.12"
+        "respect/validation": "^2.2"
     },
     "autoload": {
         "psr-4": {
-            "McDonaldsAPI\\": "api/"
+            "MyCollegeAPI\\": "api/"
         }
     }
 }

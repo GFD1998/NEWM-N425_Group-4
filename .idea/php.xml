@@ -19,7 +19,6 @@
       <path value="$PROJECT_DIR$/vendor/slim/psr7" />
       <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
       <path value="$PROJECT_DIR$/vendor/nikic/fast-route" />
-      <path value="$PROJECT_DIR$/vendor/pimple/pimple" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
       <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/fig/http-message-util" />
@@ -124,6 +123,16 @@
       <path value="/Applications/MAMP/htdocs/I425/mycollege-api/vendor/voku/portable-ascii" />
       <path value="/Applications/MAMP/htdocs/I425/mycollege-api/vendor/php-di/php-di" />
       <path value="/Applications/MAMP/htdocs/I425/mycollege-api/vendor/php-di/invoker" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-server-middleware" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-server-handler" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/psr/log" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/psr/http-server-middleware" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/psr/http-server-handler" />
+      <path value="$PROJECT_DIR$/vendor/respect/stringifier" />
+      <path value="$PROJECT_DIR$/vendor/respect/validation" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/respect/validation" />
+      <path value="/Applications/MAMP/htdocs/I425/NEWM-N425_Group-4/vendor/respect/stringifier" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.2">

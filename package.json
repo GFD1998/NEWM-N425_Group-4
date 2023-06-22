@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "jquery": "^3.7.0"
+    "jquery": "^3.7.0",
+    "react-hook-form": "^7.45.0",
+    "react-json-pretty": "^2.2.0"
   }
 }
