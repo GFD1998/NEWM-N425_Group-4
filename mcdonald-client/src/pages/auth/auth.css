@@ -16,8 +16,8 @@
 }
 
 .form-auth h3 {
-    color: var(--clr-white);
-    background-color: var(--clr-primary-4);
+    color: black;
+    background-color: #FFC72C;
     padding: 20px;
 }
 
